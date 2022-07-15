@@ -1,0 +1,3 @@
+[submodule "dependencies/gl"]
+	path = dependencies/gl
+	url = git@github.com:KhronosGroup/OpenGL-Registry.git
