@@ -37,7 +37,9 @@ enum C_types {
   GLshort,
   GLboolean,
   GLint,
-  GLuint64
+  GLuint64,
+  GLfixed,
+  GLsizeiptr
 }
 
 extension C3Type on C_types {
@@ -98,6 +100,10 @@ String toC3_Type(String value) {
     case "GLint":
       return "int";
     case "GLuint64":
+      return "int";
+    case "GLfixed":
+      return "int";
+    case "GLsizeiptr":
       return "int";
     default:
       // print(value);
