@@ -2,7 +2,7 @@ import "dart:io";
 import 'package:xml/xml.dart';
 
 class EnumValue {
-  final int value;
+  final String value;
   final String name;
   const EnumValue(this.value, this.name);
 }
@@ -118,7 +118,7 @@ List<EnumValue> parseEnums(XmlDocument document) {
         // var comment = node.getAttribute("comment");
         String value = node.getAttribute("value");
         if (value == null) return null;
-        return EnumValue(int.parse(node.getAttribute("value")), node.getAttribute("name"));
+        return EnumValue(node.getAttribute("value"), node.getAttribute("name"));
       })
       .where((element) => element != null)
       .toList();
@@ -149,6 +149,7 @@ List<Command> parseCommands(XmlDocument document) {
 
 void write_C3file(List<Command> commands, List<EnumValue> enums) async {
   var file = File('./build/opengl.c3');
+  file.writeAsStringSync("");
 
   String fnData = "// Functions \n \n" +
       commands.map((element) {
@@ -163,17 +164,49 @@ void write_C3file(List<Command> commands, List<EnumValue> enums) async {
 
   String constants = "// Constants \n \n" +
       enums.map((element) {
-        return "const " + element.name + " = " + "0x" + element.value.toRadixString(16).toString() + ";";
+        return "const " + element.name + " = " + element.value + ";";
       }).join("\n");
 
   file.writeAsStringSync(fnData + "\n \n" + constants);
 }
 
+void buildForVersion(String minVersion) {}
+
 void main() {
+  const versions = [
+    "GL_VERSION_2_0",
+    "GL_VERSION_2_1",
+    "GL_VERSION_3_0",
+    "GL_VERSION_3_1",
+    "GL_VERSION_3_2",
+    "GL_VERSION_3_3",
+    "GL_VERSION_4_0",
+    "GL_VERSION_4_1",
+    "GL_VERSION_4_2",
+    "GL_VERSION_4_3",
+    "GL_VERSION_4_4",
+    "GL_VERSION_4_5",
+    "GL_VERSION_4_6"
+  ];
+
   final file = new File('dependencies/gl/xml/gl.xml');
   final document = XmlDocument.parse(file.readAsStringSync());
+
   List<Command> commandList = parseCommands(document);
   List<EnumValue> enumList = parseEnums(document);
+  List<String> versionEnums = [];
+  List<String> versionCommands = [];
 
-  write_C3file(commandList, enumList);
+  document.findAllElements('feature').forEach((XmlElement node) {
+    var featureName = node.getAttribute("name");
+
+    if (versions.contains(featureName)) {
+      versionEnums.addAll(node.findAllElements("enum").map((value) => value.getAttribute("name")));
+      versionCommands.addAll(node.findAllElements("command").map((value) => value.getAttribute("name")));
+    }
+  });
+
+  var commands = commandList.where((element) => versionCommands.contains(element.name)).toList();
+  var enums = enumList.where((element) => versionEnums.contains(element.name)).toList();
+  write_C3file(commands, enums);
 }
