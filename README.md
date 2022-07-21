@@ -3,10 +3,10 @@
 
 ### Building
 
-run `git clone git@github.com:tonis2/opengl-c3.git --recursive` to get the repository + OpenGL stuff
+Git clone the repository and run `git submodule init && git submodule update` to get OpenGL submodules 
 
 Make sure [dart](https://dart.dev/) is installed 
 
-Install dart packaged `dart pub get`
+Install dart packages `dart pub get`
 
 Build C3 binding `dart run main.dart`
