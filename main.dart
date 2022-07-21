@@ -13,7 +13,7 @@ class Param {
   Param(this.type, this.name);
 
   String toString() {
-    return toC3_Type(type) + " " + name;
+    return C3Type(type) + " " + renameParameter(name);
   }
 }
 
@@ -22,59 +22,86 @@ class Command {
   final String name;
   final List<Param> params;
   const Command(this.returnType, this.name, this.params);
-}
 
-enum C_types {
-  GLsizei,
-  GLuint,
-  GLfloat,
-  GLclampf,
-  GLenum,
-  GLuint64EXT,
-  GLubyte,
-  GLdouble,
-  GLchar,
-  GLshort,
-  GLboolean,
-  GLint,
-  GLuint64,
-  GLfixed,
-  GLsizeiptr,
-  GLbyte,
-}
-
-extension C3Type on C_types {
-  String get name {
-    switch (this) {
-      case C_types.GLsizei:
-        return 'isize';
-      case C_types.GLuint:
-        return 'uint';
-      case C_types.GLfloat:
-        return 'float';
-      case C_types.GLclampf:
-        return 'float';
-      case C_types.GLenum:
-        return 'int';
-      case C_types.GLuint64EXT:
-        return 'int';
-      case C_types.GLubyte:
-        return 'uint';
-      case C_types.GLdouble:
-        return 'double';
-      case C_types.GLchar:
-        return 'char';
-      case C_types.GLshort:
-        return 'uint';
-      case C_types.GLboolean:
-        return 'bool';
-      default:
-        return null;
-    }
+  String toString() {
+    var fnName = name.substring(2);
+    return "fn " +
+        C3Type(returnType) +
+        " " +
+        fnName[0].toLowerCase() +
+        fnName.substring(1) +
+        "(" +
+        params.map((e) => e.toString()).join(", ") +
+        ") @extname(" +
+        "\"" +
+        name +
+        "\"" +
+        ");";
   }
 }
 
-String toC3_Type(String value) {
+// Some parameter names cause issues on C3
+String renameParameter(String value) {
+  switch (value) {
+    case "func":
+      return 'func_param';
+    default:
+      return value;
+  }
+}
+
+// enum C_types {
+//   GLsizei,
+//   GLuint,
+//   GLfloat,
+//   GLclampf,
+//   GLenum,
+//   GLuint64EXT,
+//   GLubyte,
+//   GLdouble,
+//   GLchar,
+//   GLshort,
+//   GLboolean,
+//   GLint,
+//   GLuint64,
+//   GLfixed,
+//   GLsizeiptr,
+//   GLbyte,
+// }
+
+// extension C3Type on C_types {
+//   String get name {
+//     switch (this) {
+//       case C_types.GLsizei:
+//         return 'isize';
+//       case C_types.GLuint:
+//         return 'uint';
+//       case C_types.GLfloat:
+//         return 'float';
+//       case C_types.GLclampf:
+//         return 'float';
+//       case C_types.GLenum:
+//         return 'int';
+//       case C_types.GLuint64EXT:
+//         return 'int';
+//       case C_types.GLubyte:
+//         return 'uint';
+//       case C_types.GLdouble:
+//         return 'double';
+//       case C_types.GLchar:
+//         return 'char';
+//       case C_types.GLshort:
+//         return 'uint';
+//       case C_types.GLboolean:
+//         return 'bool';
+//       default:
+//         return null;
+//     }
+//   }
+// }
+
+// Change GL_types to regular C3 types
+String C3Type(String value) {
   switch (value) {
     case "GLsizei":
       return 'isize';
@@ -102,14 +129,26 @@ String toC3_Type(String value) {
       return "int";
     case "GLuint64":
       return "ulong";
+    case "GLint64":
+      return "int";
     case "GLfixed":
       return "int";
     case "GLsizeiptr":
       return "int";
     case "GLbyte":
       return "ushort";
+    case "GLushort":
+      return "ushort";
     case "const":
-      return "char";
+      return "int*";
+    case "GLDEBUGPROC":
+      return "void*";
+    case "GLsync":
+      return "void*";
+    case "GLintptr":
+      return "iptr**";
+    case "GLbitfield":
+      return "int";
     default:
       // print(value);
       return value;
@@ -135,17 +174,33 @@ List<Command> parseCommands(XmlDocument document) {
       .map((XmlElement node) {
         var proto = node.getElement("proto");
         if (proto != null) {
-          List<Param> params = node.findAllElements("param").map((XmlElement value) {
-            var text = value.text.split(" ");
+          var fnName = proto.getElement("name").text;
+          var returnType = proto.text.split(" ")[0];
+          var paramsRaw = node.findAllElements("param");
+
+          List<Param> params = paramsRaw.map((XmlElement value) {
+            var valueText = value.text;
             var type = value.getElement("ptype");
+            var splitValueText = valueText.split(" ");
+            var paramName = splitValueText[splitValueText.length - 1];
+
+            if (valueText == "const void *data") {
+              return Param("double[]", paramName.replaceAll("*", ""));
+            }
+
+            // Replace *const* with just **
+            if (paramName.contains("*const*")) {
+              paramName = paramName.replaceAll("*const*", "**");
+            }
+
             if (type == null)
-              return Param(text[0], text[text.length - 1]);
-            else
-              return Param(type.text, text[text.length - 1]);
+              return Param(valueText.split(" ")[0], paramName);
+            else {
+              return Param(type.text, paramName);
+            }
           }).toList();
 
-          var fnName = proto.text.split(" ");
-          return Command(fnName[0], fnName[1], params);
+          return Command(returnType, fnName, params);
         }
       })
       .where((element) => element != null)
@@ -153,39 +208,27 @@ List<Command> parseCommands(XmlDocument document) {
 }
 
 void write_C3file(List<Command> commands, List<EnumValue> enums) async {
-  var file = File('./build/opengl.c3');
+  var file = File('./build/gl.c3');
   file.writeAsStringSync("");
 
-  String fnData = "// Functions \n \n" +
-      commands.map((element) {
-        var fnName = element.name.substring(2);
-        return "fn " +
-            toC3_Type(element.returnType) +
-            " " +
-            fnName[0].toLowerCase() +
-            fnName.substring(1) +
-            "(" +
-            element.params.map((e) => e.toString()).join(", ") +
-            ") @extname(" +
-            "\"" +
-            element.name +
-            "\"" +
-            ");";
-      }).join("\n");
+  // Create Functions list
+  String fnData = "// Functions \n \n" + commands.map((element) => element.toString()).join("\n");
 
+  // Create Constants list
   String constants = "// Constants \n \n" +
       enums.map((element) {
         return "const " + element.name.toUpperCase() + " = " + element.value + ";";
       }).join("\n");
 
-  file.writeAsStringSync(fnData + "\n \n" + constants);
+  // Write the whole file
+  file.writeAsStringSync("module gl;" + "\n \n" + fnData + "\n \n" + constants);
 }
-
-void buildForVersion(String minVersion) {}
 
 void main() {
   const versions = [
     "GL_VERSION_1_0",
+    "GL_VERSION_1_1",
+    "GL_VERSION_1_5",
     "GL_VERSION_2_0",
     "GL_VERSION_2_1",
     "GL_VERSION_3_0",
@@ -204,11 +247,13 @@ void main() {
   final file = new File('dependencies/gl/xml/gl.xml');
   final document = XmlDocument.parse(file.readAsStringSync());
 
+  // Parse all commands and enums
   List<Command> commandList = parseCommands(document);
   List<EnumValue> enumList = parseEnums(document);
+
+  // Filter out the versions required
   List<String> versionEnums = [];
   List<String> versionCommands = [];
-
   document.findAllElements('feature').forEach((XmlElement node) {
     var featureName = node.getAttribute("name");
 
@@ -218,7 +263,10 @@ void main() {
     }
   });
 
+  // Filtered commands and enums
   var commands = commandList.where((element) => versionCommands.contains(element.name)).toList();
   var enums = enumList.where((element) => versionEnums.contains(element.name)).toList();
+
+  // Write to file
   write_C3file(commands, enums);
 }
