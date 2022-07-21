@@ -1,5 +1,10 @@
-# opengl-c3
+# Opengl C3 bindings generator
 
-Automatic opengl builds for C3
 
-Clone repo with --recursive for OPENGL config, and then run `dart run main.dart`;
+### Building
+
+run `git clone git@github.com:tonis2/opengl-c3.git --recursive` to get the repository + OpenGL stuff
+Make sure [dart](https://dart.dev/) is installed 
+Install dart packaged `dart pub get`
+
+Build C3 binding `dart run main.dart`
