@@ -39,7 +39,8 @@ enum C_types {
   GLint,
   GLuint64,
   GLfixed,
-  GLsizeiptr
+  GLsizeiptr,
+  GLbyte,
 }
 
 extension C3Type on C_types {
@@ -94,17 +95,21 @@ String toC3_Type(String value) {
     case "GLchar":
       return 'char';
     case "GLshort":
-      return 'uint';
+      return 'short';
     case "GLboolean":
       return 'bool';
     case "GLint":
       return "int";
     case "GLuint64":
-      return "int";
+      return "ulong";
     case "GLfixed":
       return "int";
     case "GLsizeiptr":
       return "int";
+    case "GLbyte":
+      return "ushort";
+    case "const":
+      return "char";
     default:
       // print(value);
       return value;
@@ -153,18 +158,24 @@ void write_C3file(List<Command> commands, List<EnumValue> enums) async {
 
   String fnData = "// Functions \n \n" +
       commands.map((element) {
-        return "extern fn " +
+        var fnName = element.name.substring(2);
+        return "fn " +
             toC3_Type(element.returnType) +
             " " +
-            element.name +
+            fnName[0].toLowerCase() +
+            fnName.substring(1) +
             "(" +
             element.params.map((e) => e.toString()).join(", ") +
+            ") @extname(" +
+            "\"" +
+            element.name +
+            "\"" +
             ");";
       }).join("\n");
 
   String constants = "// Constants \n \n" +
       enums.map((element) {
-        return "const " + element.name + " = " + element.value + ";";
+        return "const " + element.name.toUpperCase() + " = " + element.value + ";";
       }).join("\n");
 
   file.writeAsStringSync(fnData + "\n \n" + constants);
@@ -174,6 +185,7 @@ void buildForVersion(String minVersion) {}
 
 void main() {
   const versions = [
+    "GL_VERSION_1_0",
     "GL_VERSION_2_0",
     "GL_VERSION_2_1",
     "GL_VERSION_3_0",
