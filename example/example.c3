@@ -44,6 +44,7 @@ fn int main()
 
   if (window == null)
   {
+        libc::printf("Failed to init gl window");
         glfw::terminate();
         return 1;
   }
