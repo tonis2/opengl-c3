@@ -2,7 +2,9 @@ import libc;
 import glfw;
 import gl;
 
-double[] points = { 0.0, 0.5, 0.0, 0.5, -0.5, 0.0, -0.5, -0.5, 0.0 };
+float[] points = { -0.5, -0.5, 0.0,
+     0.5, -0.5, 0.0,
+     0.0,  0.5, 0.0 };
 
 const char* VERTEX_SHADER = `
   #version 410
