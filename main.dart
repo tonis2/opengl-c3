@@ -5,6 +5,10 @@ class EnumValue {
   final String value;
   final String name;
   const EnumValue(this.value, this.name);
+
+   String toString() {
+    return "const ${name.toUpperCase()} = $value;";
+  }
 }
 
 class Param {
@@ -94,8 +98,10 @@ List<EnumValue> parseEnums(XmlDocument document) {
       .map((XmlElement node) {
         // var comment = node.getAttribute("comment");
         String value = node.getAttribute("value");
+        String name = node.getAttribute("name");
         if (value == null) return null;
-        return EnumValue(node.getAttribute("value"), node.getAttribute("name"));
+
+        return EnumValue(node.getAttribute("value"), name);
       })
       .where((element) => element != null)
       .toList();
@@ -239,9 +245,7 @@ void main() {
 
   // Create Constants list
   String constants = Comment("Constants") +
-      enums.map((value) {
-        return "const " + value.name.toUpperCase() + " = " + value.value + ";";
-      }).join("\n");
+      enums.map((value) => value.toString()).join("\n");
 
   // Init function
 

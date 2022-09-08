@@ -25,7 +25,6 @@ const char* FRAGMENT_SHADER= `
 
 fn int main()   
 {
-  glfw::init();
 
   const int WIDTH = 1280;
   const int HEIGHT = 720;
@@ -38,6 +37,8 @@ fn int main()
   uint vert_shader;
   uint frag_shader;
 
+
+  glfw::init();
   glfw::windowHint(glfw::CONTEXT_VERSION_MAJOR, 4);
   glfw::windowHint(glfw::CONTEXT_VERSION_MINOR, 1);
   glfw::windowHint(glfw::OPENGL_PROFILE, glfw::OPENGL_CORE_PROFILE);
@@ -53,8 +54,6 @@ fn int main()
   }
 
   glfw::makeContextCurrent(window);
-
-
   gl::init(&glfw::getProcAddress);
 
   renderer = gl::getString( gl::GL_RENDERER );
