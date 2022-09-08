@@ -8,7 +8,7 @@ _Required dependencies_
 
 To compile run on command line:
 
-`c3c compile ./example.c3 ./glfw.c3 ../build/gl.c3 -l glfw -l GL -o ./example`
+`c3c compile ./example.c3 ./glfw.c3 ../build/gl.c3 -l glfw -o ./example`
 
 Then run `./example`
 

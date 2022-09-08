@@ -12,6 +12,7 @@ const CONTEXT_RELEASE_BEHAVIOR = 0x00022009;
 const CONTEXT_CREATION_API = 0x0002200B;
 const COCOA_RETINA_FRAMEBUFFER = 0x00023001;
 const COCOA_FRAME_NAME = 0x00023002;
+
 const COCOA_GRAPHICS_SWITCHING = 0x00023003;
 const X11_CLASS_NAME = 0x00024001;
 const X11_INSTANCE_NAME = 0x00024002;
@@ -31,9 +32,11 @@ fn void getFramebufferSize(WindowRef window, int*, int*) @extname("glfwGetFrameb
 fn double getTime() @extname("glfwGetTime");
 
 fn void terminate() @extname("glfwTerminate");
+
 fn GLproc getProcAddress(char*) @extname("glfwGetProcAddress");
 fn bool windowShouldClose(WindowRef window) @extname("glfwWindowShouldClose");
 fn Monitoref createWindow(int, int, char*, Monitoref, WindowRef) @extname("glfwCreateWindow");
+
 
 
 

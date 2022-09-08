@@ -38,6 +38,37 @@ class Command {
         "\"" +
         ");";
   }
+
+  String shortName(bool uppercase) {
+    String short = name.substring(2);
+    if (uppercase) {
+      return short[0].toUpperCase() + short.substring(1);
+    } else {
+      return short[0].toLowerCase() + short.substring(1);
+    }
+  }
+
+  String defineName() {
+    return "GL_" + shortName(true);
+  }
+
+  String toDefinition() {
+    return "define " +
+        defineName() +
+        " = fn " +
+        C3Type(returnType) +
+        " (" +
+        params.map((e) => e.toString()).join(", ") +
+        " );";
+  }
+
+  String toBinding() {
+    return defineName() + " " + shortName(false) + ";";
+  }
+
+  String getProc() {
+    return "bindings.${shortName(false)} = (${defineName()})procAddress(\"${name}\");";
+  }
 }
 
 // Some parameter names cause issues on C3
@@ -207,21 +238,8 @@ List<Command> parseCommands(XmlDocument document) {
       .toList();
 }
 
-void write_C3file(List<Command> commands, List<EnumValue> enums) async {
-  var file = File('./build/gl.c3');
-  file.writeAsStringSync("");
-
-  // Create Functions list
-  String fnData = "// Functions \n \n" + commands.map((element) => element.toString()).join("\n");
-
-  // Create Constants list
-  String constants = "// Constants \n \n" +
-      enums.map((element) {
-        return "const " + element.name.toUpperCase() + " = " + element.value + ";";
-      }).join("\n");
-
-  // Write the whole file
-  file.writeAsStringSync("module gl;" + "\n \n" + fnData + "\n \n" + constants);
+String Comment(String value) {
+  return "\n\n/** \n* $value \n*/ \n";
 }
 
 void main() {
@@ -244,10 +262,10 @@ void main() {
     "GL_VERSION_4_6"
   ];
 
+  // Parse all commands and enums from XML
   final file = new File('dependencies/gl/xml/gl.xml');
   final document = XmlDocument.parse(file.readAsStringSync());
 
-  // Parse all commands and enums
   List<Command> commandList = parseCommands(document);
   List<EnumValue> enumList = parseEnums(document);
 
@@ -264,9 +282,49 @@ void main() {
   });
 
   // Filtered commands and enums
-  var commands = commandList.where((element) => versionCommands.contains(element.name)).toList();
-  var enums = enumList.where((element) => versionEnums.contains(element.name)).toList();
+  var commands = commandList.where((value) => versionCommands.contains(value.name)).toList();
+  var enums = enumList.where((value) => versionEnums.contains(value.name)).toList();
 
-  // Write to file
-  write_C3file(commands, enums);
+  // This is where the converting to output string happens, very messy.
+
+  // Write to output file
+
+  var output = File('./build/gl.c3');
+  output.writeAsStringSync("");
+
+  // Create function bindings placeholder
+  String bindingsPlaceholder = Comment("Bindings") +
+      "struct GL_bindings\n{\n" +
+      commands.map((value) => value.toBinding()).join("\n") +
+      "\n}" +
+      Comment("Bindings memory") +
+      "\nGL_bindings bindings;";
+
+  // Create Function definitions
+  String fnDefinitions = Comment("Function definitions") +
+      commands.map((value) => value.toDefinition()).join("\n") +
+      Comment("GLFW proc definitions") +
+      "\ndefine ProcFN = fn void* (char*);\n\n";
+
+  // Create Constants list
+  String constants = Comment("Constants") +
+      enums.map((value) {
+        return "const " + value.name.toUpperCase() + " = " + value.value + ";";
+      }).join("\n");
+
+  // Init function
+
+  String initFunction =
+      "fn void init(ProcFN procAddress) {\n${commands.map((value) => value.getProc()).join("  \n")}\n} \n";
+
+  // Write the whole C3 output file
+  output.writeAsStringSync("module gl;" +
+      "\n \n" +
+      constants +
+      "\n \n" +
+      fnDefinitions +
+      "\n \n" +
+      bindingsPlaceholder +
+      "\n \n" +
+      initFunction);
 }
