@@ -65,6 +65,10 @@ class Command {
     return defineName() + " " + shortName(false) + ";";
   }
 
+  String toCallFn() {
+    return "fn ${returnType} ${shortName(false)} (${params.map((e) => e.toString()).join(", ")}) { return bindings.${shortName(false)}(${params.map((e) => renameParameter(e.name)).join(",")}); }";
+  }
+
   String getProc() {
     return "bindings.${shortName(false)} = (${defineName()})procAddress(\"${name}\");";
   }
@@ -244,6 +248,8 @@ void main() {
   String initFunction =
       "fn void init(ProcFN procAddress) {\n${commands.map((value) => value.getProc()).join("  \n")}\n} \n";
 
+  String callFunctions = commands.map((value) => value.toCallFn()).join("\n");
+
   // Write the whole C3 output file
   output.writeAsStringSync("module gl;" +
       "\n \n" +
@@ -255,5 +261,6 @@ void main() {
       "\n \n" +
       bindingsPlaceholder +
       "\n \n" +
-      initFunction);
+      initFunction + "\n \n" + callFunctions
+      );
 }

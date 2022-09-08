@@ -43,7 +43,6 @@ fn int main()
   glfw::windowHint(glfw::OPENGL_PROFILE, glfw::OPENGL_CORE_PROFILE);
   glfw::windowHint(glfw::OPENGL_FORWARD_COMPAT, 1);
 
-
   glfw::WindowRef window = glfw::createWindow(WIDTH, HEIGHT, "GLFW OpenGL", null, null);
 
   if (window == null)
@@ -58,44 +57,44 @@ fn int main()
 
   gl::init(&glfw::getProcAddress);
 
-  renderer = gl::bindings.getString( gl::GL_RENDERER );
-  version  = gl::bindings.getString( gl::GL_VERSION );
+  renderer = gl::getString( gl::GL_RENDERER );
+  version  = gl::getString( gl::GL_VERSION );
 
   libc::printf( "Renderer: %s\n", renderer );
   libc::printf( "OpenGL version supported %s\n", version );
 
-  gl::bindings.enable( gl::GL_DEPTH_TEST );
-  gl::bindings.depthFunc( gl::GL_LESS );
-  gl::bindings.genBuffers( 1, &vbo );
-  gl::bindings.bindBuffer( gl::GL_ARRAY_BUFFER, vbo );
-  gl::bindings.bufferData( gl::GL_ARRAY_BUFFER, 9 * float.sizeof, points, gl::GL_STATIC_DRAW );
+  gl::enable( gl::GL_DEPTH_TEST );
+  gl::depthFunc( gl::GL_LESS );
+  gl::genBuffers( 1, &vbo );
+  gl::bindBuffer( gl::GL_ARRAY_BUFFER, vbo );
+  gl::bufferData( gl::GL_ARRAY_BUFFER, 9 * float.sizeof, points, gl::GL_STATIC_DRAW );
 
-  gl::bindings.genVertexArrays( 1, &vao );
-  gl::bindings.bindVertexArray( vao );
+  gl::genVertexArrays( 1, &vao );
+  gl::bindVertexArray( vao );
 
-  gl::bindings.enableVertexAttribArray( 0 );
-  gl::bindings.bindBuffer( gl::GL_ARRAY_BUFFER, vbo );
-  gl::bindings.vertexAttribPointer( 0, 3, gl::GL_FLOAT, false, 0, null );
+  gl::enableVertexAttribArray( 0 );
+  gl::bindBuffer( gl::GL_ARRAY_BUFFER, vbo );
+  gl::vertexAttribPointer( 0, 3, gl::GL_FLOAT, false, 0, null );
 
-  vert_shader = gl::bindings.createShader( gl::GL_VERTEX_SHADER );
-  gl::bindings.shaderSource( vert_shader, 1, &VERTEX_SHADER, null );
-  gl::bindings.compileShader( vert_shader );
+  vert_shader = gl::createShader( gl::GL_VERTEX_SHADER );
+  gl::shaderSource( vert_shader, 1, &VERTEX_SHADER, null );
+  gl::compileShader( vert_shader );
 
-  frag_shader = gl::bindings.createShader( gl::GL_FRAGMENT_SHADER );
-  gl::bindings.shaderSource( frag_shader, 1, &FRAGMENT_SHADER, null );
-  gl::bindings.compileShader( frag_shader );
+  frag_shader = gl::createShader( gl::GL_FRAGMENT_SHADER );
+  gl::shaderSource( frag_shader, 1, &FRAGMENT_SHADER, null );
+  gl::compileShader( frag_shader );
 
-  shader_programme = gl::bindings.createProgram();
-  gl::bindings.attachShader( shader_programme, frag_shader );
-  gl::bindings.attachShader( shader_programme, vert_shader );
-  gl::bindings.linkProgram( shader_programme );
+  shader_programme = gl::createProgram();
+  gl::attachShader( shader_programme, frag_shader );
+  gl::attachShader( shader_programme, vert_shader );
+  gl::linkProgram( shader_programme );
 
 
   while(!glfw::windowShouldClose(window)) {
-    gl::bindings.clear( gl::GL_COLOR_BUFFER_BIT | gl::GL_DEPTH_BUFFER_BIT );
-    gl::bindings.useProgram( shader_programme );
-    gl::bindings.bindVertexArray( vao );
-    gl::bindings.drawArrays( gl::GL_TRIANGLES, 0, 3 );
+    gl::clear( gl::GL_COLOR_BUFFER_BIT | gl::GL_DEPTH_BUFFER_BIT );
+    gl::useProgram( shader_programme );
+    gl::bindVertexArray( vao );
+    gl::drawArrays( gl::GL_TRIANGLES, 0, 3 );
 
     glfw::pollEvents();
     glfw::swapBuffers(window);

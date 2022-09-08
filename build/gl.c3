@@ -4840,3 +4840,1031 @@ bindings.windowPos3iv = (GL_WindowPos3iv)procAddress("glWindowPos3iv");
 bindings.windowPos3s = (GL_WindowPos3s)procAddress("glWindowPos3s");  
 bindings.windowPos3sv = (GL_WindowPos3sv)procAddress("glWindowPos3sv");
 } 
+
+ 
+fn void  accum (GLenum op, GLfloat value) { return bindings.accum(op,value); }
+fn void  activeShaderProgram (GLuint pipeline, GLuint program) { return bindings.activeShaderProgram(pipeline,program); }
+fn void  alphaFunc (GLenum func_param, GLfloat ref) { return bindings.alphaFunc(func_param,ref); }
+fn GLboolean  areTexturesResident (GLsizei n,  GLuint *textures, GLboolean *residences) { return bindings.areTexturesResident(n,textures,residences); }
+fn void  arrayElement (GLint i) { return bindings.arrayElement(i); }
+fn void  attachShader (GLuint program, GLuint shader) { return bindings.attachShader(program,shader); }
+fn void  begin (GLenum mode) { return bindings.begin(mode); }
+fn void  beginConditionalRender (GLuint id, GLenum mode) { return bindings.beginConditionalRender(id,mode); }
+fn void  beginQuery (GLenum target, GLuint id) { return bindings.beginQuery(target,id); }
+fn void  beginQueryIndexed (GLenum target, GLuint index, GLuint id) { return bindings.beginQueryIndexed(target,index,id); }
+fn void  beginTransformFeedback (GLenum primitiveMode) { return bindings.beginTransformFeedback(primitiveMode); }
+fn void  bindAttribLocation (GLuint program, GLuint index,  GLchar *name) { return bindings.bindAttribLocation(program,index,name); }
+fn void  bindBuffer (GLenum target, GLuint buffer) { return bindings.bindBuffer(target,buffer); }
+fn void  bindBufferBase (GLenum target, GLuint index, GLuint buffer) { return bindings.bindBufferBase(target,index,buffer); }
+fn void  bindBufferRange (GLenum target, GLuint index, GLuint buffer, GLintptr offset, GLsizeiptr size) { return bindings.bindBufferRange(target,index,buffer,offset,size); }
+fn void  bindBuffersBase (GLenum target, GLuint first, GLsizei count,  GLuint *buffers) { return bindings.bindBuffersBase(target,first,count,buffers); }
+fn void  bindBuffersRange (GLenum target, GLuint first, GLsizei count,  GLuint *buffers,  GLintptr *offsets,  GLsizeiptr *sizes) { return bindings.bindBuffersRange(target,first,count,buffers,offsets,sizes); }
+fn void  bindFragDataLocation (GLuint program, GLuint color,  GLchar *name) { return bindings.bindFragDataLocation(program,color,name); }
+fn void  bindFragDataLocationIndexed (GLuint program, GLuint colorNumber, GLuint index,  GLchar *name) { return bindings.bindFragDataLocationIndexed(program,colorNumber,index,name); }
+fn void  bindFramebuffer (GLenum target, GLuint framebuffer) { return bindings.bindFramebuffer(target,framebuffer); }
+fn void  bindImageTexture (GLuint unit, GLuint texture, GLint level, GLboolean layered, GLint layer, GLenum access, GLenum format) { return bindings.bindImageTexture(unit,texture,level,layered,layer,access,format); }
+fn void  bindImageTextures (GLuint first, GLsizei count,  GLuint *textures) { return bindings.bindImageTextures(first,count,textures); }
+fn void  bindProgramPipeline (GLuint pipeline) { return bindings.bindProgramPipeline(pipeline); }
+fn void  bindRenderbuffer (GLenum target, GLuint renderbuffer) { return bindings.bindRenderbuffer(target,renderbuffer); }
+fn void  bindSampler (GLuint unit, GLuint sampler) { return bindings.bindSampler(unit,sampler); }
+fn void  bindSamplers (GLuint first, GLsizei count,  GLuint *samplers) { return bindings.bindSamplers(first,count,samplers); }
+fn void  bindTexture (GLenum target, GLuint texture) { return bindings.bindTexture(target,texture); }
+fn void  bindTextureUnit (GLuint unit, GLuint texture) { return bindings.bindTextureUnit(unit,texture); }
+fn void  bindTextures (GLuint first, GLsizei count,  GLuint *textures) { return bindings.bindTextures(first,count,textures); }
+fn void  bindTransformFeedback (GLenum target, GLuint id) { return bindings.bindTransformFeedback(target,id); }
+fn void  bindVertexArray (GLuint array) { return bindings.bindVertexArray(array); }
+fn void  bindVertexBuffer (GLuint bindingindex, GLuint buffer, GLintptr offset, GLsizei stride) { return bindings.bindVertexBuffer(bindingindex,buffer,offset,stride); }
+fn void  bindVertexBuffers (GLuint first, GLsizei count,  GLuint *buffers,  GLintptr *offsets,  GLsizei *strides) { return bindings.bindVertexBuffers(first,count,buffers,offsets,strides); }
+fn void  bitmap (GLsizei width, GLsizei height, GLfloat xorig, GLfloat yorig, GLfloat xmove, GLfloat ymove,  GLubyte *bitmap) { return bindings.bitmap(width,height,xorig,yorig,xmove,ymove,bitmap); }
+fn void  blendEquationSeparate (GLenum modeRGB, GLenum modeAlpha) { return bindings.blendEquationSeparate(modeRGB,modeAlpha); }
+fn void  blendEquationSeparatei (GLuint buf, GLenum modeRGB, GLenum modeAlpha) { return bindings.blendEquationSeparatei(buf,modeRGB,modeAlpha); }
+fn void  blendEquationi (GLuint buf, GLenum mode) { return bindings.blendEquationi(buf,mode); }
+fn void  blendFunc (GLenum sfactor, GLenum dfactor) { return bindings.blendFunc(sfactor,dfactor); }
+fn void  blendFuncSeparatei (GLuint buf, GLenum srcRGB, GLenum dstRGB, GLenum srcAlpha, GLenum dstAlpha) { return bindings.blendFuncSeparatei(buf,srcRGB,dstRGB,srcAlpha,dstAlpha); }
+fn void  blendFunci (GLuint buf, GLenum src, GLenum dst) { return bindings.blendFunci(buf,src,dst); }
+fn void  blitFramebuffer (GLint srcX0, GLint srcY0, GLint srcX1, GLint srcY1, GLint dstX0, GLint dstY0, GLint dstX1, GLint dstY1, GLbitfield mask, GLenum filter) { return bindings.blitFramebuffer(srcX0,srcY0,srcX1,srcY1,dstX0,dstY0,dstX1,dstY1,mask,filter); }
+fn void  blitNamedFramebuffer (GLuint readFramebuffer, GLuint drawFramebuffer, GLint srcX0, GLint srcY0, GLint srcX1, GLint srcY1, GLint dstX0, GLint dstY0, GLint dstX1, GLint dstY1, GLbitfield mask, GLenum filter) { return bindings.blitNamedFramebuffer(readFramebuffer,drawFramebuffer,srcX0,srcY0,srcX1,srcY1,dstX0,dstY0,dstX1,dstY1,mask,filter); }
+fn void  bufferData (GLenum target, GLsizeiptr size,  void *data, GLenum usage) { return bindings.bufferData(target,size,data,usage); }
+fn void  bufferStorage (GLenum target, GLsizeiptr size,  void *data, GLbitfield flags) { return bindings.bufferStorage(target,size,data,flags); }
+fn void  bufferSubData (GLenum target, GLintptr offset, GLsizeiptr size,  void *data) { return bindings.bufferSubData(target,offset,size,data); }
+fn void  callList (GLuint list) { return bindings.callList(list); }
+fn void  callLists (GLsizei n, GLenum value_type,  void *lists) { return bindings.callLists(n,value_type,lists); }
+fn GLenum  checkFramebufferStatus (GLenum target) { return bindings.checkFramebufferStatus(target); }
+fn GLenum  checkNamedFramebufferStatus (GLuint framebuffer, GLenum target) { return bindings.checkNamedFramebufferStatus(framebuffer,target); }
+fn void  clampColor (GLenum target, GLenum clamp) { return bindings.clampColor(target,clamp); }
+fn void  clear (GLbitfield mask) { return bindings.clear(mask); }
+fn void  clearAccum (GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha) { return bindings.clearAccum(red,green,blue,alpha); }
+fn void  clearBufferData (GLenum target, GLenum internalformat, GLenum format, GLenum value_type,  void *data) { return bindings.clearBufferData(target,internalformat,format,value_type,data); }
+fn void  clearBufferSubData (GLenum target, GLenum internalformat, GLintptr offset, GLsizeiptr size, GLenum format, GLenum value_type,  void *data) { return bindings.clearBufferSubData(target,internalformat,offset,size,format,value_type,data); }
+fn void  clearBufferfi (GLenum buffer, GLint drawbuffer, GLfloat depth, GLint stencil) { return bindings.clearBufferfi(buffer,drawbuffer,depth,stencil); }
+fn void  clearBufferfv (GLenum buffer, GLint drawbuffer,  GLfloat *value) { return bindings.clearBufferfv(buffer,drawbuffer,value); }
+fn void  clearBufferiv (GLenum buffer, GLint drawbuffer,  GLint *value) { return bindings.clearBufferiv(buffer,drawbuffer,value); }
+fn void  clearBufferuiv (GLenum buffer, GLint drawbuffer,  GLuint *value) { return bindings.clearBufferuiv(buffer,drawbuffer,value); }
+fn void  clearColor (GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha) { return bindings.clearColor(red,green,blue,alpha); }
+fn void  clearDepth (GLdouble depth) { return bindings.clearDepth(depth); }
+fn void  clearDepthf (GLfloat d) { return bindings.clearDepthf(d); }
+fn void  clearIndex (GLfloat c) { return bindings.clearIndex(c); }
+fn void  clearNamedBufferData (GLuint buffer, GLenum internalformat, GLenum format, GLenum value_type,  void *data) { return bindings.clearNamedBufferData(buffer,internalformat,format,value_type,data); }
+fn void  clearNamedBufferSubData (GLuint buffer, GLenum internalformat, GLintptr offset, GLsizeiptr size, GLenum format, GLenum value_type,  void *data) { return bindings.clearNamedBufferSubData(buffer,internalformat,offset,size,format,value_type,data); }
+fn void  clearNamedFramebufferfi (GLuint framebuffer, GLenum buffer, GLint drawbuffer, GLfloat depth, GLint stencil) { return bindings.clearNamedFramebufferfi(framebuffer,buffer,drawbuffer,depth,stencil); }
+fn void  clearNamedFramebufferfv (GLuint framebuffer, GLenum buffer, GLint drawbuffer,  GLfloat *value) { return bindings.clearNamedFramebufferfv(framebuffer,buffer,drawbuffer,value); }
+fn void  clearNamedFramebufferiv (GLuint framebuffer, GLenum buffer, GLint drawbuffer,  GLint *value) { return bindings.clearNamedFramebufferiv(framebuffer,buffer,drawbuffer,value); }
+fn void  clearNamedFramebufferuiv (GLuint framebuffer, GLenum buffer, GLint drawbuffer,  GLuint *value) { return bindings.clearNamedFramebufferuiv(framebuffer,buffer,drawbuffer,value); }
+fn void  clearStencil (GLint s) { return bindings.clearStencil(s); }
+fn void  clearTexImage (GLuint texture, GLint level, GLenum format, GLenum value_type,  void *data) { return bindings.clearTexImage(texture,level,format,value_type,data); }
+fn void  clearTexSubImage (GLuint texture, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum value_type,  void *data) { return bindings.clearTexSubImage(texture,level,xoffset,yoffset,zoffset,width,height,depth,format,value_type,data); }
+fn void  clientActiveTexture (GLenum texture) { return bindings.clientActiveTexture(texture); }
+fn GLenum  clientWaitSync (GLsync sync, GLbitfield flags, GLuint64 timeout) { return bindings.clientWaitSync(sync,flags,timeout); }
+fn void  clipControl (GLenum origin, GLenum depth) { return bindings.clipControl(origin,depth); }
+fn void  clipPlane (GLenum plane,  GLdouble *equation) { return bindings.clipPlane(plane,equation); }
+fn void  color3b (GLbyte red, GLbyte green, GLbyte blue) { return bindings.color3b(red,green,blue); }
+fn void  color3bv ( GLbyte *v) { return bindings.color3bv(v); }
+fn void  color3d (GLdouble red, GLdouble green, GLdouble blue) { return bindings.color3d(red,green,blue); }
+fn void  color3dv ( GLdouble *v) { return bindings.color3dv(v); }
+fn void  color3f (GLfloat red, GLfloat green, GLfloat blue) { return bindings.color3f(red,green,blue); }
+fn void  color3fv ( GLfloat *v) { return bindings.color3fv(v); }
+fn void  color3i (GLint red, GLint green, GLint blue) { return bindings.color3i(red,green,blue); }
+fn void  color3iv ( GLint *v) { return bindings.color3iv(v); }
+fn void  color3s (GLshort red, GLshort green, GLshort blue) { return bindings.color3s(red,green,blue); }
+fn void  color3sv ( GLshort *v) { return bindings.color3sv(v); }
+fn void  color3ub (GLubyte red, GLubyte green, GLubyte blue) { return bindings.color3ub(red,green,blue); }
+fn void  color3ubv ( GLubyte *v) { return bindings.color3ubv(v); }
+fn void  color3ui (GLuint red, GLuint green, GLuint blue) { return bindings.color3ui(red,green,blue); }
+fn void  color3uiv ( GLuint *v) { return bindings.color3uiv(v); }
+fn void  color3us (GLushort red, GLushort green, GLushort blue) { return bindings.color3us(red,green,blue); }
+fn void  color3usv ( GLushort *v) { return bindings.color3usv(v); }
+fn void  color4b (GLbyte red, GLbyte green, GLbyte blue, GLbyte alpha) { return bindings.color4b(red,green,blue,alpha); }
+fn void  color4bv ( GLbyte *v) { return bindings.color4bv(v); }
+fn void  color4d (GLdouble red, GLdouble green, GLdouble blue, GLdouble alpha) { return bindings.color4d(red,green,blue,alpha); }
+fn void  color4dv ( GLdouble *v) { return bindings.color4dv(v); }
+fn void  color4f (GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha) { return bindings.color4f(red,green,blue,alpha); }
+fn void  color4fv ( GLfloat *v) { return bindings.color4fv(v); }
+fn void  color4i (GLint red, GLint green, GLint blue, GLint alpha) { return bindings.color4i(red,green,blue,alpha); }
+fn void  color4iv ( GLint *v) { return bindings.color4iv(v); }
+fn void  color4s (GLshort red, GLshort green, GLshort blue, GLshort alpha) { return bindings.color4s(red,green,blue,alpha); }
+fn void  color4sv ( GLshort *v) { return bindings.color4sv(v); }
+fn void  color4ub (GLubyte red, GLubyte green, GLubyte blue, GLubyte alpha) { return bindings.color4ub(red,green,blue,alpha); }
+fn void  color4ubv ( GLubyte *v) { return bindings.color4ubv(v); }
+fn void  color4ui (GLuint red, GLuint green, GLuint blue, GLuint alpha) { return bindings.color4ui(red,green,blue,alpha); }
+fn void  color4uiv ( GLuint *v) { return bindings.color4uiv(v); }
+fn void  color4us (GLushort red, GLushort green, GLushort blue, GLushort alpha) { return bindings.color4us(red,green,blue,alpha); }
+fn void  color4usv ( GLushort *v) { return bindings.color4usv(v); }
+fn void  colorMask (GLboolean red, GLboolean green, GLboolean blue, GLboolean alpha) { return bindings.colorMask(red,green,blue,alpha); }
+fn void  colorMaski (GLuint index, GLboolean r, GLboolean g, GLboolean b, GLboolean a) { return bindings.colorMaski(index,r,g,b,a); }
+fn void  colorMaterial (GLenum face, GLenum mode) { return bindings.colorMaterial(face,mode); }
+fn void  colorP3ui (GLenum value_type, GLuint color) { return bindings.colorP3ui(value_type,color); }
+fn void  colorP3uiv (GLenum value_type,  GLuint *color) { return bindings.colorP3uiv(value_type,color); }
+fn void  colorP4ui (GLenum value_type, GLuint color) { return bindings.colorP4ui(value_type,color); }
+fn void  colorP4uiv (GLenum value_type,  GLuint *color) { return bindings.colorP4uiv(value_type,color); }
+fn void  colorPointer (GLint size, GLenum value_type, GLsizei stride,  void *pointer) { return bindings.colorPointer(size,value_type,stride,pointer); }
+fn void  compileShader (GLuint shader) { return bindings.compileShader(shader); }
+fn void  compressedTextureSubImage1D (GLuint texture, GLint level, GLint xoffset, GLsizei width, GLenum format, GLsizei imageSize,  void *data) { return bindings.compressedTextureSubImage1D(texture,level,xoffset,width,format,imageSize,data); }
+fn void  compressedTextureSubImage2D (GLuint texture, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLsizei imageSize,  void *data) { return bindings.compressedTextureSubImage2D(texture,level,xoffset,yoffset,width,height,format,imageSize,data); }
+fn void  compressedTextureSubImage3D (GLuint texture, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLsizei imageSize,  void *data) { return bindings.compressedTextureSubImage3D(texture,level,xoffset,yoffset,zoffset,width,height,depth,format,imageSize,data); }
+fn void  copyBufferSubData (GLenum readTarget, GLenum writeTarget, GLintptr readOffset, GLintptr writeOffset, GLsizeiptr size) { return bindings.copyBufferSubData(readTarget,writeTarget,readOffset,writeOffset,size); }
+fn void  copyImageSubData (GLuint srcName, GLenum srcTarget, GLint srcLevel, GLint srcX, GLint srcY, GLint srcZ, GLuint dstName, GLenum dstTarget, GLint dstLevel, GLint dstX, GLint dstY, GLint dstZ, GLsizei srcWidth, GLsizei srcHeight, GLsizei srcDepth) { return bindings.copyImageSubData(srcName,srcTarget,srcLevel,srcX,srcY,srcZ,dstName,dstTarget,dstLevel,dstX,dstY,dstZ,srcWidth,srcHeight,srcDepth); }
+fn void  copyNamedBufferSubData (GLuint readBuffer, GLuint writeBuffer, GLintptr readOffset, GLintptr writeOffset, GLsizeiptr size) { return bindings.copyNamedBufferSubData(readBuffer,writeBuffer,readOffset,writeOffset,size); }
+fn void  copyPixels (GLint x, GLint y, GLsizei width, GLsizei height, GLenum value_type) { return bindings.copyPixels(x,y,width,height,value_type); }
+fn void  copyTexImage1D (GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLint border) { return bindings.copyTexImage1D(target,level,internalformat,x,y,width,border); }
+fn void  copyTexImage2D (GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLsizei height, GLint border) { return bindings.copyTexImage2D(target,level,internalformat,x,y,width,height,border); }
+fn void  copyTexSubImage1D (GLenum target, GLint level, GLint xoffset, GLint x, GLint y, GLsizei width) { return bindings.copyTexSubImage1D(target,level,xoffset,x,y,width); }
+fn void  copyTexSubImage2D (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint x, GLint y, GLsizei width, GLsizei height) { return bindings.copyTexSubImage2D(target,level,xoffset,yoffset,x,y,width,height); }
+fn void  copyTextureSubImage1D (GLuint texture, GLint level, GLint xoffset, GLint x, GLint y, GLsizei width) { return bindings.copyTextureSubImage1D(texture,level,xoffset,x,y,width); }
+fn void  copyTextureSubImage2D (GLuint texture, GLint level, GLint xoffset, GLint yoffset, GLint x, GLint y, GLsizei width, GLsizei height) { return bindings.copyTextureSubImage2D(texture,level,xoffset,yoffset,x,y,width,height); }
+fn void  copyTextureSubImage3D (GLuint texture, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLint x, GLint y, GLsizei width, GLsizei height) { return bindings.copyTextureSubImage3D(texture,level,xoffset,yoffset,zoffset,x,y,width,height); }
+fn void  createBuffers (GLsizei n, GLuint *buffers) { return bindings.createBuffers(n,buffers); }
+fn void  createFramebuffers (GLsizei n, GLuint *framebuffers) { return bindings.createFramebuffers(n,framebuffers); }
+fn GLuint  createProgram () { return bindings.createProgram(); }
+fn void  createProgramPipelines (GLsizei n, GLuint *pipelines) { return bindings.createProgramPipelines(n,pipelines); }
+fn void  createQueries (GLenum target, GLsizei n, GLuint *ids) { return bindings.createQueries(target,n,ids); }
+fn void  createRenderbuffers (GLsizei n, GLuint *renderbuffers) { return bindings.createRenderbuffers(n,renderbuffers); }
+fn void  createSamplers (GLsizei n, GLuint *samplers) { return bindings.createSamplers(n,samplers); }
+fn GLuint  createShader (GLenum value_type) { return bindings.createShader(value_type); }
+fn GLuint  createShaderProgramv (GLenum value_type, GLsizei count,  GLchar **strings) { return bindings.createShaderProgramv(value_type,count,strings); }
+fn void  createTextures (GLenum target, GLsizei n, GLuint *textures) { return bindings.createTextures(target,n,textures); }
+fn void  createTransformFeedbacks (GLsizei n, GLuint *ids) { return bindings.createTransformFeedbacks(n,ids); }
+fn void  createVertexArrays (GLsizei n, GLuint *arrays) { return bindings.createVertexArrays(n,arrays); }
+fn void  cullFace (GLenum mode) { return bindings.cullFace(mode); }
+fn void  debugMessageCallback (GLdebugproc callback,  void *userParam) { return bindings.debugMessageCallback(callback,userParam); }
+fn void  debugMessageControl (GLenum source, GLenum value_type, GLenum severity, GLsizei count,  GLuint *ids, GLboolean enabled) { return bindings.debugMessageControl(source,value_type,severity,count,ids,enabled); }
+fn void  debugMessageInsert (GLenum source, GLenum value_type, GLuint id, GLenum severity, GLsizei length,  GLchar *buf) { return bindings.debugMessageInsert(source,value_type,id,severity,length,buf); }
+fn void  deleteBuffers (GLsizei n,  GLuint *buffers) { return bindings.deleteBuffers(n,buffers); }
+fn void  deleteFramebuffers (GLsizei n,  GLuint *framebuffers) { return bindings.deleteFramebuffers(n,framebuffers); }
+fn void  deleteLists (GLuint list, GLsizei range) { return bindings.deleteLists(list,range); }
+fn void  deleteProgram (GLuint program) { return bindings.deleteProgram(program); }
+fn void  deleteProgramPipelines (GLsizei n,  GLuint *pipelines) { return bindings.deleteProgramPipelines(n,pipelines); }
+fn void  deleteQueries (GLsizei n,  GLuint *ids) { return bindings.deleteQueries(n,ids); }
+fn void  deleteRenderbuffers (GLsizei n,  GLuint *renderbuffers) { return bindings.deleteRenderbuffers(n,renderbuffers); }
+fn void  deleteSamplers (GLsizei count,  GLuint *samplers) { return bindings.deleteSamplers(count,samplers); }
+fn void  deleteShader (GLuint shader) { return bindings.deleteShader(shader); }
+fn void  deleteSync (GLsync sync) { return bindings.deleteSync(sync); }
+fn void  deleteTextures (GLsizei n,  GLuint *textures) { return bindings.deleteTextures(n,textures); }
+fn void  deleteTransformFeedbacks (GLsizei n,  GLuint *ids) { return bindings.deleteTransformFeedbacks(n,ids); }
+fn void  deleteVertexArrays (GLsizei n,  GLuint *arrays) { return bindings.deleteVertexArrays(n,arrays); }
+fn void  depthFunc (GLenum func_param) { return bindings.depthFunc(func_param); }
+fn void  depthMask (GLboolean flag) { return bindings.depthMask(flag); }
+fn void  depthRange (GLdouble n, GLdouble f) { return bindings.depthRange(n,f); }
+fn void  depthRangeArrayv (GLuint first, GLsizei count,  GLdouble *v) { return bindings.depthRangeArrayv(first,count,v); }
+fn void  depthRangeIndexed (GLuint index, GLdouble n, GLdouble f) { return bindings.depthRangeIndexed(index,n,f); }
+fn void  depthRangef (GLfloat n, GLfloat f) { return bindings.depthRangef(n,f); }
+fn void  detachShader (GLuint program, GLuint shader) { return bindings.detachShader(program,shader); }
+fn void  disable (GLenum cap) { return bindings.disable(cap); }
+fn void  disableClientState (GLenum array) { return bindings.disableClientState(array); }
+fn void  disableVertexArrayAttrib (GLuint vaobj, GLuint index) { return bindings.disableVertexArrayAttrib(vaobj,index); }
+fn void  disableVertexAttribArray (GLuint index) { return bindings.disableVertexAttribArray(index); }
+fn void  disablei (GLenum target, GLuint index) { return bindings.disablei(target,index); }
+fn void  dispatchCompute (GLuint num_groups_x, GLuint num_groups_y, GLuint num_groups_z) { return bindings.dispatchCompute(num_groups_x,num_groups_y,num_groups_z); }
+fn void  dispatchComputeIndirect (GLintptr indirect) { return bindings.dispatchComputeIndirect(indirect); }
+fn void  drawArrays (GLenum mode, GLint first, GLsizei count) { return bindings.drawArrays(mode,first,count); }
+fn void  drawArraysIndirect (GLenum mode,  void *indirect) { return bindings.drawArraysIndirect(mode,indirect); }
+fn void  drawArraysInstanced (GLenum mode, GLint first, GLsizei count, GLsizei instancecount) { return bindings.drawArraysInstanced(mode,first,count,instancecount); }
+fn void  drawArraysInstancedBaseInstance (GLenum mode, GLint first, GLsizei count, GLsizei instancecount, GLuint baseinstance) { return bindings.drawArraysInstancedBaseInstance(mode,first,count,instancecount,baseinstance); }
+fn void  drawBuffer (GLenum buf) { return bindings.drawBuffer(buf); }
+fn void  drawBuffers (GLsizei n,  GLenum *bufs) { return bindings.drawBuffers(n,bufs); }
+fn void  drawElements (GLenum mode, GLsizei count, GLenum value_type,  void *indices) { return bindings.drawElements(mode,count,value_type,indices); }
+fn void  drawElementsBaseVertex (GLenum mode, GLsizei count, GLenum value_type,  void *indices, GLint basevertex) { return bindings.drawElementsBaseVertex(mode,count,value_type,indices,basevertex); }
+fn void  drawElementsIndirect (GLenum mode, GLenum value_type,  void *indirect) { return bindings.drawElementsIndirect(mode,value_type,indirect); }
+fn void  drawElementsInstanced (GLenum mode, GLsizei count, GLenum value_type,  void *indices, GLsizei instancecount) { return bindings.drawElementsInstanced(mode,count,value_type,indices,instancecount); }
+fn void  drawElementsInstancedBaseInstance (GLenum mode, GLsizei count, GLenum value_type,  void *indices, GLsizei instancecount, GLuint baseinstance) { return bindings.drawElementsInstancedBaseInstance(mode,count,value_type,indices,instancecount,baseinstance); }
+fn void  drawElementsInstancedBaseVertex (GLenum mode, GLsizei count, GLenum value_type,  void *indices, GLsizei instancecount, GLint basevertex) { return bindings.drawElementsInstancedBaseVertex(mode,count,value_type,indices,instancecount,basevertex); }
+fn void  drawElementsInstancedBaseVertexBaseInstance (GLenum mode, GLsizei count, GLenum value_type,  void *indices, GLsizei instancecount, GLint basevertex, GLuint baseinstance) { return bindings.drawElementsInstancedBaseVertexBaseInstance(mode,count,value_type,indices,instancecount,basevertex,baseinstance); }
+fn void  drawPixels (GLsizei width, GLsizei height, GLenum format, GLenum value_type,  void *pixels) { return bindings.drawPixels(width,height,format,value_type,pixels); }
+fn void  drawRangeElementsBaseVertex (GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum value_type,  void *indices, GLint basevertex) { return bindings.drawRangeElementsBaseVertex(mode,start,end,count,value_type,indices,basevertex); }
+fn void  drawTransformFeedback (GLenum mode, GLuint id) { return bindings.drawTransformFeedback(mode,id); }
+fn void  drawTransformFeedbackInstanced (GLenum mode, GLuint id, GLsizei instancecount) { return bindings.drawTransformFeedbackInstanced(mode,id,instancecount); }
+fn void  drawTransformFeedbackStream (GLenum mode, GLuint id, GLuint stream) { return bindings.drawTransformFeedbackStream(mode,id,stream); }
+fn void  drawTransformFeedbackStreamInstanced (GLenum mode, GLuint id, GLuint stream, GLsizei instancecount) { return bindings.drawTransformFeedbackStreamInstanced(mode,id,stream,instancecount); }
+fn void  edgeFlag (GLboolean flag) { return bindings.edgeFlag(flag); }
+fn void  edgeFlagPointer (GLsizei stride,  void *pointer) { return bindings.edgeFlagPointer(stride,pointer); }
+fn void  edgeFlagv ( GLboolean *flag) { return bindings.edgeFlagv(flag); }
+fn void  enable (GLenum cap) { return bindings.enable(cap); }
+fn void  enableClientState (GLenum array) { return bindings.enableClientState(array); }
+fn void  enableVertexArrayAttrib (GLuint vaobj, GLuint index) { return bindings.enableVertexArrayAttrib(vaobj,index); }
+fn void  enableVertexAttribArray (GLuint index) { return bindings.enableVertexAttribArray(index); }
+fn void  enablei (GLenum target, GLuint index) { return bindings.enablei(target,index); }
+fn void  end () { return bindings.end(); }
+fn void  endConditionalRender () { return bindings.endConditionalRender(); }
+fn void  endList () { return bindings.endList(); }
+fn void  endQuery (GLenum target) { return bindings.endQuery(target); }
+fn void  endQueryIndexed (GLenum target, GLuint index) { return bindings.endQueryIndexed(target,index); }
+fn void  endTransformFeedback () { return bindings.endTransformFeedback(); }
+fn void  evalCoord1d (GLdouble u) { return bindings.evalCoord1d(u); }
+fn void  evalCoord1dv ( GLdouble *u) { return bindings.evalCoord1dv(u); }
+fn void  evalCoord1f (GLfloat u) { return bindings.evalCoord1f(u); }
+fn void  evalCoord1fv ( GLfloat *u) { return bindings.evalCoord1fv(u); }
+fn void  evalCoord2d (GLdouble u, GLdouble v) { return bindings.evalCoord2d(u,v); }
+fn void  evalCoord2dv ( GLdouble *u) { return bindings.evalCoord2dv(u); }
+fn void  evalCoord2f (GLfloat u, GLfloat v) { return bindings.evalCoord2f(u,v); }
+fn void  evalCoord2fv ( GLfloat *u) { return bindings.evalCoord2fv(u); }
+fn void  evalMesh1 (GLenum mode, GLint i1, GLint i2) { return bindings.evalMesh1(mode,i1,i2); }
+fn void  evalMesh2 (GLenum mode, GLint i1, GLint i2, GLint j1, GLint j2) { return bindings.evalMesh2(mode,i1,i2,j1,j2); }
+fn void  evalPoint1 (GLint i) { return bindings.evalPoint1(i); }
+fn void  evalPoint2 (GLint i, GLint j) { return bindings.evalPoint2(i,j); }
+fn void  feedbackBuffer (GLsizei size, GLenum value_type, GLfloat *buffer) { return bindings.feedbackBuffer(size,value_type,buffer); }
+fn GLsync  fenceSync (GLenum condition, GLbitfield flags) { return bindings.fenceSync(condition,flags); }
+fn void  finish () { return bindings.finish(); }
+fn void  flush () { return bindings.flush(); }
+fn void  flushMappedBufferRange (GLenum target, GLintptr offset, GLsizeiptr length) { return bindings.flushMappedBufferRange(target,offset,length); }
+fn void  flushMappedNamedBufferRange (GLuint buffer, GLintptr offset, GLsizeiptr length) { return bindings.flushMappedNamedBufferRange(buffer,offset,length); }
+fn void  fogCoordPointer (GLenum value_type, GLsizei stride,  void *pointer) { return bindings.fogCoordPointer(value_type,stride,pointer); }
+fn void  fogCoordd (GLdouble coord) { return bindings.fogCoordd(coord); }
+fn void  fogCoorddv ( GLdouble *coord) { return bindings.fogCoorddv(coord); }
+fn void  fogCoordf (GLfloat coord) { return bindings.fogCoordf(coord); }
+fn void  fogCoordfv ( GLfloat *coord) { return bindings.fogCoordfv(coord); }
+fn void  fogf (GLenum pname, GLfloat param) { return bindings.fogf(pname,param); }
+fn void  fogfv (GLenum pname,  GLfloat *params) { return bindings.fogfv(pname,params); }
+fn void  fogi (GLenum pname, GLint param) { return bindings.fogi(pname,param); }
+fn void  fogiv (GLenum pname,  GLint *params) { return bindings.fogiv(pname,params); }
+fn void  framebufferParameteri (GLenum target, GLenum pname, GLint param) { return bindings.framebufferParameteri(target,pname,param); }
+fn void  framebufferRenderbuffer (GLenum target, GLenum attachment, GLenum renderbuffertarget, GLuint renderbuffer) { return bindings.framebufferRenderbuffer(target,attachment,renderbuffertarget,renderbuffer); }
+fn void  framebufferTexture (GLenum target, GLenum attachment, GLuint texture, GLint level) { return bindings.framebufferTexture(target,attachment,texture,level); }
+fn void  framebufferTexture1D (GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level) { return bindings.framebufferTexture1D(target,attachment,textarget,texture,level); }
+fn void  framebufferTexture2D (GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level) { return bindings.framebufferTexture2D(target,attachment,textarget,texture,level); }
+fn void  framebufferTexture3D (GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level, GLint zoffset) { return bindings.framebufferTexture3D(target,attachment,textarget,texture,level,zoffset); }
+fn void  framebufferTextureLayer (GLenum target, GLenum attachment, GLuint texture, GLint level, GLint layer) { return bindings.framebufferTextureLayer(target,attachment,texture,level,layer); }
+fn void  frontFace (GLenum mode) { return bindings.frontFace(mode); }
+fn void  frustum (GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble zNear, GLdouble zFar) { return bindings.frustum(left,right,bottom,top,zNear,zFar); }
+fn void  genBuffers (GLsizei n, GLuint *buffers) { return bindings.genBuffers(n,buffers); }
+fn void  genFramebuffers (GLsizei n, GLuint *framebuffers) { return bindings.genFramebuffers(n,framebuffers); }
+fn GLuint  genLists (GLsizei range) { return bindings.genLists(range); }
+fn void  genProgramPipelines (GLsizei n, GLuint *pipelines) { return bindings.genProgramPipelines(n,pipelines); }
+fn void  genQueries (GLsizei n, GLuint *ids) { return bindings.genQueries(n,ids); }
+fn void  genRenderbuffers (GLsizei n, GLuint *renderbuffers) { return bindings.genRenderbuffers(n,renderbuffers); }
+fn void  genSamplers (GLsizei count, GLuint *samplers) { return bindings.genSamplers(count,samplers); }
+fn void  genTextures (GLsizei n, GLuint *textures) { return bindings.genTextures(n,textures); }
+fn void  genTransformFeedbacks (GLsizei n, GLuint *ids) { return bindings.genTransformFeedbacks(n,ids); }
+fn void  genVertexArrays (GLsizei n, GLuint *arrays) { return bindings.genVertexArrays(n,arrays); }
+fn void  generateMipmap (GLenum target) { return bindings.generateMipmap(target); }
+fn void  generateTextureMipmap (GLuint texture) { return bindings.generateTextureMipmap(texture); }
+fn void  getActiveAtomicCounterBufferiv (GLuint program, GLuint bufferIndex, GLenum pname, GLint *params) { return bindings.getActiveAtomicCounterBufferiv(program,bufferIndex,pname,params); }
+fn void  getActiveAttrib (GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLint *size, GLenum *value_type, GLchar *name) { return bindings.getActiveAttrib(program,index,bufSize,length,size,value_type,name); }
+fn void  getActiveSubroutineName (GLuint program, GLenum shadertype, GLuint index, GLsizei bufSize, GLsizei *length, GLchar *name) { return bindings.getActiveSubroutineName(program,shadertype,index,bufSize,length,name); }
+fn void  getActiveSubroutineUniformName (GLuint program, GLenum shadertype, GLuint index, GLsizei bufSize, GLsizei *length, GLchar *name) { return bindings.getActiveSubroutineUniformName(program,shadertype,index,bufSize,length,name); }
+fn void  getActiveSubroutineUniformiv (GLuint program, GLenum shadertype, GLuint index, GLenum pname, GLint *values) { return bindings.getActiveSubroutineUniformiv(program,shadertype,index,pname,values); }
+fn void  getActiveUniform (GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLint *size, GLenum *value_type, GLchar *name) { return bindings.getActiveUniform(program,index,bufSize,length,size,value_type,name); }
+fn void  getActiveUniformBlockName (GLuint program, GLuint uniformBlockIndex, GLsizei bufSize, GLsizei *length, GLchar *uniformBlockName) { return bindings.getActiveUniformBlockName(program,uniformBlockIndex,bufSize,length,uniformBlockName); }
+fn void  getActiveUniformBlockiv (GLuint program, GLuint uniformBlockIndex, GLenum pname, GLint *params) { return bindings.getActiveUniformBlockiv(program,uniformBlockIndex,pname,params); }
+fn void  getActiveUniformName (GLuint program, GLuint uniformIndex, GLsizei bufSize, GLsizei *length, GLchar *uniformName) { return bindings.getActiveUniformName(program,uniformIndex,bufSize,length,uniformName); }
+fn void  getActiveUniformsiv (GLuint program, GLsizei uniformCount,  GLuint *uniformIndices, GLenum pname, GLint *params) { return bindings.getActiveUniformsiv(program,uniformCount,uniformIndices,pname,params); }
+fn void  getAttachedShaders (GLuint program, GLsizei maxCount, GLsizei *count, GLuint *shaders) { return bindings.getAttachedShaders(program,maxCount,count,shaders); }
+fn GLint  getAttribLocation (GLuint program,  GLchar *name) { return bindings.getAttribLocation(program,name); }
+fn void  getBooleani_v (GLenum target, GLuint index, GLboolean *data) { return bindings.getBooleani_v(target,index,data); }
+fn void  getBooleanv (GLenum pname, GLboolean *data) { return bindings.getBooleanv(pname,data); }
+fn void  getBufferParameteri64v (GLenum target, GLenum pname, GLint64 *params) { return bindings.getBufferParameteri64v(target,pname,params); }
+fn void  getBufferParameteriv (GLenum target, GLenum pname, GLint *params) { return bindings.getBufferParameteriv(target,pname,params); }
+fn void  getBufferPointerv (GLenum target, GLenum pname, void **params) { return bindings.getBufferPointerv(target,pname,params); }
+fn void  getBufferSubData (GLenum target, GLintptr offset, GLsizeiptr size, void *data) { return bindings.getBufferSubData(target,offset,size,data); }
+fn void  getClipPlane (GLenum plane, GLdouble *equation) { return bindings.getClipPlane(plane,equation); }
+fn void  getCompressedTextureImage (GLuint texture, GLint level, GLsizei bufSize, void *pixels) { return bindings.getCompressedTextureImage(texture,level,bufSize,pixels); }
+fn void  getCompressedTextureSubImage (GLuint texture, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLsizei bufSize, void *pixels) { return bindings.getCompressedTextureSubImage(texture,level,xoffset,yoffset,zoffset,width,height,depth,bufSize,pixels); }
+fn GLuint  getDebugMessageLog (GLuint count, GLsizei bufSize, GLenum *sources, GLenum *types, GLuint *ids, GLenum *severities, GLsizei *lengths, GLchar *messageLog) { return bindings.getDebugMessageLog(count,bufSize,sources,types,ids,severities,lengths,messageLog); }
+fn void  getDoublei_v (GLenum target, GLuint index, GLdouble *data) { return bindings.getDoublei_v(target,index,data); }
+fn void  getDoublev (GLenum pname, GLdouble *data) { return bindings.getDoublev(pname,data); }
+fn GLenum  getError () { return bindings.getError(); }
+fn void  getFloati_v (GLenum target, GLuint index, GLfloat *data) { return bindings.getFloati_v(target,index,data); }
+fn void  getFloatv (GLenum pname, GLfloat *data) { return bindings.getFloatv(pname,data); }
+fn GLint  getFragDataIndex (GLuint program,  GLchar *name) { return bindings.getFragDataIndex(program,name); }
+fn GLint  getFragDataLocation (GLuint program,  GLchar *name) { return bindings.getFragDataLocation(program,name); }
+fn void  getFramebufferAttachmentParameteriv (GLenum target, GLenum attachment, GLenum pname, GLint *params) { return bindings.getFramebufferAttachmentParameteriv(target,attachment,pname,params); }
+fn void  getFramebufferParameteriv (GLenum target, GLenum pname, GLint *params) { return bindings.getFramebufferParameteriv(target,pname,params); }
+fn GLenum  getGraphicsResetStatus () { return bindings.getGraphicsResetStatus(); }
+fn void  getInteger64i_v (GLenum target, GLuint index, GLint64 *data) { return bindings.getInteger64i_v(target,index,data); }
+fn void  getInteger64v (GLenum pname, GLint64 *data) { return bindings.getInteger64v(pname,data); }
+fn void  getIntegeri_v (GLenum target, GLuint index, GLint *data) { return bindings.getIntegeri_v(target,index,data); }
+fn void  getIntegerv (GLenum pname, GLint *data) { return bindings.getIntegerv(pname,data); }
+fn void  getInternalformati64v (GLenum target, GLenum internalformat, GLenum pname, GLsizei count, GLint64 *params) { return bindings.getInternalformati64v(target,internalformat,pname,count,params); }
+fn void  getInternalformativ (GLenum target, GLenum internalformat, GLenum pname, GLsizei count, GLint *params) { return bindings.getInternalformativ(target,internalformat,pname,count,params); }
+fn void  getLightfv (GLenum light, GLenum pname, GLfloat *params) { return bindings.getLightfv(light,pname,params); }
+fn void  getLightiv (GLenum light, GLenum pname, GLint *params) { return bindings.getLightiv(light,pname,params); }
+fn void  getMapdv (GLenum target, GLenum query, GLdouble *v) { return bindings.getMapdv(target,query,v); }
+fn void  getMapfv (GLenum target, GLenum query, GLfloat *v) { return bindings.getMapfv(target,query,v); }
+fn void  getMapiv (GLenum target, GLenum query, GLint *v) { return bindings.getMapiv(target,query,v); }
+fn void  getMaterialfv (GLenum face, GLenum pname, GLfloat *params) { return bindings.getMaterialfv(face,pname,params); }
+fn void  getMaterialiv (GLenum face, GLenum pname, GLint *params) { return bindings.getMaterialiv(face,pname,params); }
+fn void  getMultisamplefv (GLenum pname, GLuint index, GLfloat *val) { return bindings.getMultisamplefv(pname,index,val); }
+fn void  getNamedBufferParameteri64v (GLuint buffer, GLenum pname, GLint64 *params) { return bindings.getNamedBufferParameteri64v(buffer,pname,params); }
+fn void  getNamedBufferParameteriv (GLuint buffer, GLenum pname, GLint *params) { return bindings.getNamedBufferParameteriv(buffer,pname,params); }
+fn void  getNamedBufferPointerv (GLuint buffer, GLenum pname, void **params) { return bindings.getNamedBufferPointerv(buffer,pname,params); }
+fn void  getNamedBufferSubData (GLuint buffer, GLintptr offset, GLsizeiptr size, void *data) { return bindings.getNamedBufferSubData(buffer,offset,size,data); }
+fn void  getNamedFramebufferAttachmentParameteriv (GLuint framebuffer, GLenum attachment, GLenum pname, GLint *params) { return bindings.getNamedFramebufferAttachmentParameteriv(framebuffer,attachment,pname,params); }
+fn void  getNamedFramebufferParameteriv (GLuint framebuffer, GLenum pname, GLint *param) { return bindings.getNamedFramebufferParameteriv(framebuffer,pname,param); }
+fn void  getNamedRenderbufferParameteriv (GLuint renderbuffer, GLenum pname, GLint *params) { return bindings.getNamedRenderbufferParameteriv(renderbuffer,pname,params); }
+fn void  getObjectLabel (GLenum identifier, GLuint name, GLsizei bufSize, GLsizei *length, GLchar *label) { return bindings.getObjectLabel(identifier,name,bufSize,length,label); }
+fn void  getObjectPtrLabel ( void *ptr, GLsizei bufSize, GLsizei *length, GLchar *label) { return bindings.getObjectPtrLabel(ptr,bufSize,length,label); }
+fn void  getPixelMapfv (GLenum map, GLfloat *values) { return bindings.getPixelMapfv(map,values); }
+fn void  getPixelMapuiv (GLenum map, GLuint *values) { return bindings.getPixelMapuiv(map,values); }
+fn void  getPixelMapusv (GLenum map, GLushort *values) { return bindings.getPixelMapusv(map,values); }
+fn void  getPointerv (GLenum pname, void **params) { return bindings.getPointerv(pname,params); }
+fn void  getPolygonStipple (GLubyte *mask) { return bindings.getPolygonStipple(mask); }
+fn void  getProgramBinary (GLuint program, GLsizei bufSize, GLsizei *length, GLenum *binaryFormat, void *binary) { return bindings.getProgramBinary(program,bufSize,length,binaryFormat,binary); }
+fn void  getProgramInfoLog (GLuint program, GLsizei bufSize, GLsizei *length, GLchar *infoLog) { return bindings.getProgramInfoLog(program,bufSize,length,infoLog); }
+fn void  getProgramInterfaceiv (GLuint program, GLenum programInterface, GLenum pname, GLint *params) { return bindings.getProgramInterfaceiv(program,programInterface,pname,params); }
+fn void  getProgramPipelineInfoLog (GLuint pipeline, GLsizei bufSize, GLsizei *length, GLchar *infoLog) { return bindings.getProgramPipelineInfoLog(pipeline,bufSize,length,infoLog); }
+fn void  getProgramPipelineiv (GLuint pipeline, GLenum pname, GLint *params) { return bindings.getProgramPipelineiv(pipeline,pname,params); }
+fn GLuint  getProgramResourceIndex (GLuint program, GLenum programInterface,  GLchar *name) { return bindings.getProgramResourceIndex(program,programInterface,name); }
+fn GLint  getProgramResourceLocation (GLuint program, GLenum programInterface,  GLchar *name) { return bindings.getProgramResourceLocation(program,programInterface,name); }
+fn GLint  getProgramResourceLocationIndex (GLuint program, GLenum programInterface,  GLchar *name) { return bindings.getProgramResourceLocationIndex(program,programInterface,name); }
+fn void  getProgramResourceName (GLuint program, GLenum programInterface, GLuint index, GLsizei bufSize, GLsizei *length, GLchar *name) { return bindings.getProgramResourceName(program,programInterface,index,bufSize,length,name); }
+fn void  getProgramResourceiv (GLuint program, GLenum programInterface, GLuint index, GLsizei propCount,  GLenum *props, GLsizei count, GLsizei *length, GLint *params) { return bindings.getProgramResourceiv(program,programInterface,index,propCount,props,count,length,params); }
+fn void  getProgramStageiv (GLuint program, GLenum shadertype, GLenum pname, GLint *values) { return bindings.getProgramStageiv(program,shadertype,pname,values); }
+fn void  getProgramiv (GLuint program, GLenum pname, GLint *params) { return bindings.getProgramiv(program,pname,params); }
+fn void  getQueryBufferObjecti64v (GLuint id, GLuint buffer, GLenum pname, GLintptr offset) { return bindings.getQueryBufferObjecti64v(id,buffer,pname,offset); }
+fn void  getQueryBufferObjectiv (GLuint id, GLuint buffer, GLenum pname, GLintptr offset) { return bindings.getQueryBufferObjectiv(id,buffer,pname,offset); }
+fn void  getQueryBufferObjectui64v (GLuint id, GLuint buffer, GLenum pname, GLintptr offset) { return bindings.getQueryBufferObjectui64v(id,buffer,pname,offset); }
+fn void  getQueryBufferObjectuiv (GLuint id, GLuint buffer, GLenum pname, GLintptr offset) { return bindings.getQueryBufferObjectuiv(id,buffer,pname,offset); }
+fn void  getQueryIndexediv (GLenum target, GLuint index, GLenum pname, GLint *params) { return bindings.getQueryIndexediv(target,index,pname,params); }
+fn void  getQueryObjecti64v (GLuint id, GLenum pname, GLint64 *params) { return bindings.getQueryObjecti64v(id,pname,params); }
+fn void  getQueryObjectiv (GLuint id, GLenum pname, GLint *params) { return bindings.getQueryObjectiv(id,pname,params); }
+fn void  getQueryObjectui64v (GLuint id, GLenum pname, GLuint64 *params) { return bindings.getQueryObjectui64v(id,pname,params); }
+fn void  getQueryObjectuiv (GLuint id, GLenum pname, GLuint *params) { return bindings.getQueryObjectuiv(id,pname,params); }
+fn void  getQueryiv (GLenum target, GLenum pname, GLint *params) { return bindings.getQueryiv(target,pname,params); }
+fn void  getRenderbufferParameteriv (GLenum target, GLenum pname, GLint *params) { return bindings.getRenderbufferParameteriv(target,pname,params); }
+fn void  getSamplerParameterIiv (GLuint sampler, GLenum pname, GLint *params) { return bindings.getSamplerParameterIiv(sampler,pname,params); }
+fn void  getSamplerParameterIuiv (GLuint sampler, GLenum pname, GLuint *params) { return bindings.getSamplerParameterIuiv(sampler,pname,params); }
+fn void  getSamplerParameterfv (GLuint sampler, GLenum pname, GLfloat *params) { return bindings.getSamplerParameterfv(sampler,pname,params); }
+fn void  getSamplerParameteriv (GLuint sampler, GLenum pname, GLint *params) { return bindings.getSamplerParameteriv(sampler,pname,params); }
+fn void  getShaderInfoLog (GLuint shader, GLsizei bufSize, GLsizei *length, GLchar *infoLog) { return bindings.getShaderInfoLog(shader,bufSize,length,infoLog); }
+fn void  getShaderPrecisionFormat (GLenum shadertype, GLenum precisiontype, GLint *range, GLint *precision) { return bindings.getShaderPrecisionFormat(shadertype,precisiontype,range,precision); }
+fn void  getShaderSource (GLuint shader, GLsizei bufSize, GLsizei *length, GLchar *source) { return bindings.getShaderSource(shader,bufSize,length,source); }
+fn void  getShaderiv (GLuint shader, GLenum pname, GLint *params) { return bindings.getShaderiv(shader,pname,params); }
+fn  GLubyte * getString (GLenum name) { return bindings.getString(name); }
+fn  GLubyte * getStringi (GLenum name, GLuint index) { return bindings.getStringi(name,index); }
+fn GLuint  getSubroutineIndex (GLuint program, GLenum shadertype,  GLchar *name) { return bindings.getSubroutineIndex(program,shadertype,name); }
+fn GLint  getSubroutineUniformLocation (GLuint program, GLenum shadertype,  GLchar *name) { return bindings.getSubroutineUniformLocation(program,shadertype,name); }
+fn void  getSynciv (GLsync sync, GLenum pname, GLsizei count, GLsizei *length, GLint *values) { return bindings.getSynciv(sync,pname,count,length,values); }
+fn void  getTexEnvfv (GLenum target, GLenum pname, GLfloat *params) { return bindings.getTexEnvfv(target,pname,params); }
+fn void  getTexEnviv (GLenum target, GLenum pname, GLint *params) { return bindings.getTexEnviv(target,pname,params); }
+fn void  getTexGendv (GLenum coord, GLenum pname, GLdouble *params) { return bindings.getTexGendv(coord,pname,params); }
+fn void  getTexGenfv (GLenum coord, GLenum pname, GLfloat *params) { return bindings.getTexGenfv(coord,pname,params); }
+fn void  getTexGeniv (GLenum coord, GLenum pname, GLint *params) { return bindings.getTexGeniv(coord,pname,params); }
+fn void  getTexImage (GLenum target, GLint level, GLenum format, GLenum value_type, void *pixels) { return bindings.getTexImage(target,level,format,value_type,pixels); }
+fn void  getTexLevelParameterfv (GLenum target, GLint level, GLenum pname, GLfloat *params) { return bindings.getTexLevelParameterfv(target,level,pname,params); }
+fn void  getTexLevelParameteriv (GLenum target, GLint level, GLenum pname, GLint *params) { return bindings.getTexLevelParameteriv(target,level,pname,params); }
+fn void  getTexParameterIiv (GLenum target, GLenum pname, GLint *params) { return bindings.getTexParameterIiv(target,pname,params); }
+fn void  getTexParameterIuiv (GLenum target, GLenum pname, GLuint *params) { return bindings.getTexParameterIuiv(target,pname,params); }
+fn void  getTexParameterfv (GLenum target, GLenum pname, GLfloat *params) { return bindings.getTexParameterfv(target,pname,params); }
+fn void  getTexParameteriv (GLenum target, GLenum pname, GLint *params) { return bindings.getTexParameteriv(target,pname,params); }
+fn void  getTextureImage (GLuint texture, GLint level, GLenum format, GLenum value_type, GLsizei bufSize, void *pixels) { return bindings.getTextureImage(texture,level,format,value_type,bufSize,pixels); }
+fn void  getTextureLevelParameterfv (GLuint texture, GLint level, GLenum pname, GLfloat *params) { return bindings.getTextureLevelParameterfv(texture,level,pname,params); }
+fn void  getTextureLevelParameteriv (GLuint texture, GLint level, GLenum pname, GLint *params) { return bindings.getTextureLevelParameteriv(texture,level,pname,params); }
+fn void  getTextureParameterIiv (GLuint texture, GLenum pname, GLint *params) { return bindings.getTextureParameterIiv(texture,pname,params); }
+fn void  getTextureParameterIuiv (GLuint texture, GLenum pname, GLuint *params) { return bindings.getTextureParameterIuiv(texture,pname,params); }
+fn void  getTextureParameterfv (GLuint texture, GLenum pname, GLfloat *params) { return bindings.getTextureParameterfv(texture,pname,params); }
+fn void  getTextureParameteriv (GLuint texture, GLenum pname, GLint *params) { return bindings.getTextureParameteriv(texture,pname,params); }
+fn void  getTextureSubImage (GLuint texture, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum value_type, GLsizei bufSize, void *pixels) { return bindings.getTextureSubImage(texture,level,xoffset,yoffset,zoffset,width,height,depth,format,value_type,bufSize,pixels); }
+fn void  getTransformFeedbackVarying (GLuint program, GLuint index, GLsizei bufSize, GLsizei *length, GLsizei *size, GLenum *value_type, GLchar *name) { return bindings.getTransformFeedbackVarying(program,index,bufSize,length,size,value_type,name); }
+fn void  getTransformFeedbacki64_v (GLuint xfb, GLenum pname, GLuint index, GLint64 *param) { return bindings.getTransformFeedbacki64_v(xfb,pname,index,param); }
+fn void  getTransformFeedbacki_v (GLuint xfb, GLenum pname, GLuint index, GLint *param) { return bindings.getTransformFeedbacki_v(xfb,pname,index,param); }
+fn void  getTransformFeedbackiv (GLuint xfb, GLenum pname, GLint *param) { return bindings.getTransformFeedbackiv(xfb,pname,param); }
+fn GLuint  getUniformBlockIndex (GLuint program,  GLchar *uniformBlockName) { return bindings.getUniformBlockIndex(program,uniformBlockName); }
+fn void  getUniformIndices (GLuint program, GLsizei uniformCount,  GLchar **uniformNames, GLuint *uniformIndices) { return bindings.getUniformIndices(program,uniformCount,uniformNames,uniformIndices); }
+fn GLint  getUniformLocation (GLuint program,  GLchar *name) { return bindings.getUniformLocation(program,name); }
+fn void  getUniformSubroutineuiv (GLenum shadertype, GLint location, GLuint *params) { return bindings.getUniformSubroutineuiv(shadertype,location,params); }
+fn void  getUniformdv (GLuint program, GLint location, GLdouble *params) { return bindings.getUniformdv(program,location,params); }
+fn void  getUniformfv (GLuint program, GLint location, GLfloat *params) { return bindings.getUniformfv(program,location,params); }
+fn void  getUniformiv (GLuint program, GLint location, GLint *params) { return bindings.getUniformiv(program,location,params); }
+fn void  getUniformuiv (GLuint program, GLint location, GLuint *params) { return bindings.getUniformuiv(program,location,params); }
+fn void  getVertexArrayIndexed64iv (GLuint vaobj, GLuint index, GLenum pname, GLint64 *param) { return bindings.getVertexArrayIndexed64iv(vaobj,index,pname,param); }
+fn void  getVertexArrayIndexediv (GLuint vaobj, GLuint index, GLenum pname, GLint *param) { return bindings.getVertexArrayIndexediv(vaobj,index,pname,param); }
+fn void  getVertexArrayiv (GLuint vaobj, GLenum pname, GLint *param) { return bindings.getVertexArrayiv(vaobj,pname,param); }
+fn void  getVertexAttribIiv (GLuint index, GLenum pname, GLint *params) { return bindings.getVertexAttribIiv(index,pname,params); }
+fn void  getVertexAttribIuiv (GLuint index, GLenum pname, GLuint *params) { return bindings.getVertexAttribIuiv(index,pname,params); }
+fn void  getVertexAttribLdv (GLuint index, GLenum pname, GLdouble *params) { return bindings.getVertexAttribLdv(index,pname,params); }
+fn void  getVertexAttribPointerv (GLuint index, GLenum pname, void **pointer) { return bindings.getVertexAttribPointerv(index,pname,pointer); }
+fn void  getVertexAttribdv (GLuint index, GLenum pname, GLdouble *params) { return bindings.getVertexAttribdv(index,pname,params); }
+fn void  getVertexAttribfv (GLuint index, GLenum pname, GLfloat *params) { return bindings.getVertexAttribfv(index,pname,params); }
+fn void  getVertexAttribiv (GLuint index, GLenum pname, GLint *params) { return bindings.getVertexAttribiv(index,pname,params); }
+fn void  getnColorTable (GLenum target, GLenum format, GLenum value_type, GLsizei bufSize, void *table) { return bindings.getnColorTable(target,format,value_type,bufSize,table); }
+fn void  getnCompressedTexImage (GLenum target, GLint lod, GLsizei bufSize, void *pixels) { return bindings.getnCompressedTexImage(target,lod,bufSize,pixels); }
+fn void  getnConvolutionFilter (GLenum target, GLenum format, GLenum value_type, GLsizei bufSize, void *image) { return bindings.getnConvolutionFilter(target,format,value_type,bufSize,image); }
+fn void  getnHistogram (GLenum target, GLboolean reset, GLenum format, GLenum value_type, GLsizei bufSize, void *values) { return bindings.getnHistogram(target,reset,format,value_type,bufSize,values); }
+fn void  getnMapdv (GLenum target, GLenum query, GLsizei bufSize, GLdouble *v) { return bindings.getnMapdv(target,query,bufSize,v); }
+fn void  getnMapfv (GLenum target, GLenum query, GLsizei bufSize, GLfloat *v) { return bindings.getnMapfv(target,query,bufSize,v); }
+fn void  getnMapiv (GLenum target, GLenum query, GLsizei bufSize, GLint *v) { return bindings.getnMapiv(target,query,bufSize,v); }
+fn void  getnMinmax (GLenum target, GLboolean reset, GLenum format, GLenum value_type, GLsizei bufSize, void *values) { return bindings.getnMinmax(target,reset,format,value_type,bufSize,values); }
+fn void  getnPixelMapfv (GLenum map, GLsizei bufSize, GLfloat *values) { return bindings.getnPixelMapfv(map,bufSize,values); }
+fn void  getnPixelMapuiv (GLenum map, GLsizei bufSize, GLuint *values) { return bindings.getnPixelMapuiv(map,bufSize,values); }
+fn void  getnPixelMapusv (GLenum map, GLsizei bufSize, GLushort *values) { return bindings.getnPixelMapusv(map,bufSize,values); }
+fn void  getnPolygonStipple (GLsizei bufSize, GLubyte *pattern) { return bindings.getnPolygonStipple(bufSize,pattern); }
+fn void  getnSeparableFilter (GLenum target, GLenum format, GLenum value_type, GLsizei rowBufSize, void *row, GLsizei columnBufSize, void *column, void *span) { return bindings.getnSeparableFilter(target,format,value_type,rowBufSize,row,columnBufSize,column,span); }
+fn void  getnTexImage (GLenum target, GLint level, GLenum format, GLenum value_type, GLsizei bufSize, void *pixels) { return bindings.getnTexImage(target,level,format,value_type,bufSize,pixels); }
+fn void  getnUniformdv (GLuint program, GLint location, GLsizei bufSize, GLdouble *params) { return bindings.getnUniformdv(program,location,bufSize,params); }
+fn void  getnUniformfv (GLuint program, GLint location, GLsizei bufSize, GLfloat *params) { return bindings.getnUniformfv(program,location,bufSize,params); }
+fn void  getnUniformiv (GLuint program, GLint location, GLsizei bufSize, GLint *params) { return bindings.getnUniformiv(program,location,bufSize,params); }
+fn void  getnUniformuiv (GLuint program, GLint location, GLsizei bufSize, GLuint *params) { return bindings.getnUniformuiv(program,location,bufSize,params); }
+fn void  hint (GLenum target, GLenum mode) { return bindings.hint(target,mode); }
+fn void  indexMask (GLuint mask) { return bindings.indexMask(mask); }
+fn void  indexPointer (GLenum value_type, GLsizei stride,  void *pointer) { return bindings.indexPointer(value_type,stride,pointer); }
+fn void  indexd (GLdouble c) { return bindings.indexd(c); }
+fn void  indexdv ( GLdouble *c) { return bindings.indexdv(c); }
+fn void  indexf (GLfloat c) { return bindings.indexf(c); }
+fn void  indexfv ( GLfloat *c) { return bindings.indexfv(c); }
+fn void  indexi (GLint c) { return bindings.indexi(c); }
+fn void  indexiv ( GLint *c) { return bindings.indexiv(c); }
+fn void  indexs (GLshort c) { return bindings.indexs(c); }
+fn void  indexsv ( GLshort *c) { return bindings.indexsv(c); }
+fn void  indexub (GLubyte c) { return bindings.indexub(c); }
+fn void  indexubv ( GLubyte *c) { return bindings.indexubv(c); }
+fn void  initNames () { return bindings.initNames(); }
+fn void  interleavedArrays (GLenum format, GLsizei stride,  void *pointer) { return bindings.interleavedArrays(format,stride,pointer); }
+fn void  invalidateBufferData (GLuint buffer) { return bindings.invalidateBufferData(buffer); }
+fn void  invalidateBufferSubData (GLuint buffer, GLintptr offset, GLsizeiptr length) { return bindings.invalidateBufferSubData(buffer,offset,length); }
+fn void  invalidateFramebuffer (GLenum target, GLsizei numAttachments,  GLenum *attachments) { return bindings.invalidateFramebuffer(target,numAttachments,attachments); }
+fn void  invalidateNamedFramebufferData (GLuint framebuffer, GLsizei numAttachments,  GLenum *attachments) { return bindings.invalidateNamedFramebufferData(framebuffer,numAttachments,attachments); }
+fn void  invalidateNamedFramebufferSubData (GLuint framebuffer, GLsizei numAttachments,  GLenum *attachments, GLint x, GLint y, GLsizei width, GLsizei height) { return bindings.invalidateNamedFramebufferSubData(framebuffer,numAttachments,attachments,x,y,width,height); }
+fn void  invalidateSubFramebuffer (GLenum target, GLsizei numAttachments,  GLenum *attachments, GLint x, GLint y, GLsizei width, GLsizei height) { return bindings.invalidateSubFramebuffer(target,numAttachments,attachments,x,y,width,height); }
+fn void  invalidateTexImage (GLuint texture, GLint level) { return bindings.invalidateTexImage(texture,level); }
+fn void  invalidateTexSubImage (GLuint texture, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth) { return bindings.invalidateTexSubImage(texture,level,xoffset,yoffset,zoffset,width,height,depth); }
+fn GLboolean  isBuffer (GLuint buffer) { return bindings.isBuffer(buffer); }
+fn GLboolean  isEnabled (GLenum cap) { return bindings.isEnabled(cap); }
+fn GLboolean  isEnabledi (GLenum target, GLuint index) { return bindings.isEnabledi(target,index); }
+fn GLboolean  isFramebuffer (GLuint framebuffer) { return bindings.isFramebuffer(framebuffer); }
+fn GLboolean  isList (GLuint list) { return bindings.isList(list); }
+fn GLboolean  isProgram (GLuint program) { return bindings.isProgram(program); }
+fn GLboolean  isProgramPipeline (GLuint pipeline) { return bindings.isProgramPipeline(pipeline); }
+fn GLboolean  isQuery (GLuint id) { return bindings.isQuery(id); }
+fn GLboolean  isRenderbuffer (GLuint renderbuffer) { return bindings.isRenderbuffer(renderbuffer); }
+fn GLboolean  isSampler (GLuint sampler) { return bindings.isSampler(sampler); }
+fn GLboolean  isShader (GLuint shader) { return bindings.isShader(shader); }
+fn GLboolean  isSync (GLsync sync) { return bindings.isSync(sync); }
+fn GLboolean  isTexture (GLuint texture) { return bindings.isTexture(texture); }
+fn GLboolean  isTransformFeedback (GLuint id) { return bindings.isTransformFeedback(id); }
+fn GLboolean  isVertexArray (GLuint array) { return bindings.isVertexArray(array); }
+fn void  lightModelf (GLenum pname, GLfloat param) { return bindings.lightModelf(pname,param); }
+fn void  lightModelfv (GLenum pname,  GLfloat *params) { return bindings.lightModelfv(pname,params); }
+fn void  lightModeli (GLenum pname, GLint param) { return bindings.lightModeli(pname,param); }
+fn void  lightModeliv (GLenum pname,  GLint *params) { return bindings.lightModeliv(pname,params); }
+fn void  lightf (GLenum light, GLenum pname, GLfloat param) { return bindings.lightf(light,pname,param); }
+fn void  lightfv (GLenum light, GLenum pname,  GLfloat *params) { return bindings.lightfv(light,pname,params); }
+fn void  lighti (GLenum light, GLenum pname, GLint param) { return bindings.lighti(light,pname,param); }
+fn void  lightiv (GLenum light, GLenum pname,  GLint *params) { return bindings.lightiv(light,pname,params); }
+fn void  lineStipple (GLint factor, GLushort pattern) { return bindings.lineStipple(factor,pattern); }
+fn void  lineWidth (GLfloat width) { return bindings.lineWidth(width); }
+fn void  linkProgram (GLuint program) { return bindings.linkProgram(program); }
+fn void  listBase (GLuint base) { return bindings.listBase(base); }
+fn void  loadIdentity () { return bindings.loadIdentity(); }
+fn void  loadMatrixd ( GLdouble *m) { return bindings.loadMatrixd(m); }
+fn void  loadMatrixf ( GLfloat *m) { return bindings.loadMatrixf(m); }
+fn void  loadName (GLuint name) { return bindings.loadName(name); }
+fn void  loadTransposeMatrixd ( GLdouble *m) { return bindings.loadTransposeMatrixd(m); }
+fn void  loadTransposeMatrixf ( GLfloat *m) { return bindings.loadTransposeMatrixf(m); }
+fn void  logicOp (GLenum opcode) { return bindings.logicOp(opcode); }
+fn void  map1d (GLenum target, GLdouble u1, GLdouble u2, GLint stride, GLint order,  GLdouble *points) { return bindings.map1d(target,u1,u2,stride,order,points); }
+fn void  map1f (GLenum target, GLfloat u1, GLfloat u2, GLint stride, GLint order,  GLfloat *points) { return bindings.map1f(target,u1,u2,stride,order,points); }
+fn void  map2d (GLenum target, GLdouble u1, GLdouble u2, GLint ustride, GLint uorder, GLdouble v1, GLdouble v2, GLint vstride, GLint vorder,  GLdouble *points) { return bindings.map2d(target,u1,u2,ustride,uorder,v1,v2,vstride,vorder,points); }
+fn void  map2f (GLenum target, GLfloat u1, GLfloat u2, GLint ustride, GLint uorder, GLfloat v1, GLfloat v2, GLint vstride, GLint vorder,  GLfloat *points) { return bindings.map2f(target,u1,u2,ustride,uorder,v1,v2,vstride,vorder,points); }
+fn void * mapBuffer (GLenum target, GLenum access) { return bindings.mapBuffer(target,access); }
+fn void * mapBufferRange (GLenum target, GLintptr offset, GLsizeiptr length, GLbitfield access) { return bindings.mapBufferRange(target,offset,length,access); }
+fn void  mapGrid1d (GLint un, GLdouble u1, GLdouble u2) { return bindings.mapGrid1d(un,u1,u2); }
+fn void  mapGrid1f (GLint un, GLfloat u1, GLfloat u2) { return bindings.mapGrid1f(un,u1,u2); }
+fn void  mapGrid2d (GLint un, GLdouble u1, GLdouble u2, GLint vn, GLdouble v1, GLdouble v2) { return bindings.mapGrid2d(un,u1,u2,vn,v1,v2); }
+fn void  mapGrid2f (GLint un, GLfloat u1, GLfloat u2, GLint vn, GLfloat v1, GLfloat v2) { return bindings.mapGrid2f(un,u1,u2,vn,v1,v2); }
+fn void * mapNamedBuffer (GLuint buffer, GLenum access) { return bindings.mapNamedBuffer(buffer,access); }
+fn void * mapNamedBufferRange (GLuint buffer, GLintptr offset, GLsizeiptr length, GLbitfield access) { return bindings.mapNamedBufferRange(buffer,offset,length,access); }
+fn void  materialf (GLenum face, GLenum pname, GLfloat param) { return bindings.materialf(face,pname,param); }
+fn void  materialfv (GLenum face, GLenum pname,  GLfloat *params) { return bindings.materialfv(face,pname,params); }
+fn void  materiali (GLenum face, GLenum pname, GLint param) { return bindings.materiali(face,pname,param); }
+fn void  materialiv (GLenum face, GLenum pname,  GLint *params) { return bindings.materialiv(face,pname,params); }
+fn void  matrixMode (GLenum mode) { return bindings.matrixMode(mode); }
+fn void  memoryBarrier (GLbitfield barriers) { return bindings.memoryBarrier(barriers); }
+fn void  memoryBarrierByRegion (GLbitfield barriers) { return bindings.memoryBarrierByRegion(barriers); }
+fn void  minSampleShading (GLfloat value) { return bindings.minSampleShading(value); }
+fn void  multMatrixd ( GLdouble *m) { return bindings.multMatrixd(m); }
+fn void  multMatrixf ( GLfloat *m) { return bindings.multMatrixf(m); }
+fn void  multTransposeMatrixd ( GLdouble *m) { return bindings.multTransposeMatrixd(m); }
+fn void  multTransposeMatrixf ( GLfloat *m) { return bindings.multTransposeMatrixf(m); }
+fn void  multiDrawArraysIndirect (GLenum mode,  void *indirect, GLsizei drawcount, GLsizei stride) { return bindings.multiDrawArraysIndirect(mode,indirect,drawcount,stride); }
+fn void  multiDrawArraysIndirectCount (GLenum mode,  void *indirect, GLintptr drawcount, GLsizei maxdrawcount, GLsizei stride) { return bindings.multiDrawArraysIndirectCount(mode,indirect,drawcount,maxdrawcount,stride); }
+fn void  multiDrawElementsBaseVertex (GLenum mode,  GLsizei *count, GLenum value_type,  void **indices, GLsizei drawcount,  GLint *basevertex) { return bindings.multiDrawElementsBaseVertex(mode,count,value_type,indices,drawcount,basevertex); }
+fn void  multiDrawElementsIndirect (GLenum mode, GLenum value_type,  void *indirect, GLsizei drawcount, GLsizei stride) { return bindings.multiDrawElementsIndirect(mode,value_type,indirect,drawcount,stride); }
+fn void  multiDrawElementsIndirectCount (GLenum mode, GLenum value_type,  void *indirect, GLintptr drawcount, GLsizei maxdrawcount, GLsizei stride) { return bindings.multiDrawElementsIndirectCount(mode,value_type,indirect,drawcount,maxdrawcount,stride); }
+fn void  multiTexCoord1d (GLenum target, GLdouble s) { return bindings.multiTexCoord1d(target,s); }
+fn void  multiTexCoord1dv (GLenum target,  GLdouble *v) { return bindings.multiTexCoord1dv(target,v); }
+fn void  multiTexCoord1f (GLenum target, GLfloat s) { return bindings.multiTexCoord1f(target,s); }
+fn void  multiTexCoord1fv (GLenum target,  GLfloat *v) { return bindings.multiTexCoord1fv(target,v); }
+fn void  multiTexCoord1i (GLenum target, GLint s) { return bindings.multiTexCoord1i(target,s); }
+fn void  multiTexCoord1iv (GLenum target,  GLint *v) { return bindings.multiTexCoord1iv(target,v); }
+fn void  multiTexCoord1s (GLenum target, GLshort s) { return bindings.multiTexCoord1s(target,s); }
+fn void  multiTexCoord1sv (GLenum target,  GLshort *v) { return bindings.multiTexCoord1sv(target,v); }
+fn void  multiTexCoord2d (GLenum target, GLdouble s, GLdouble t) { return bindings.multiTexCoord2d(target,s,t); }
+fn void  multiTexCoord2dv (GLenum target,  GLdouble *v) { return bindings.multiTexCoord2dv(target,v); }
+fn void  multiTexCoord2f (GLenum target, GLfloat s, GLfloat t) { return bindings.multiTexCoord2f(target,s,t); }
+fn void  multiTexCoord2fv (GLenum target,  GLfloat *v) { return bindings.multiTexCoord2fv(target,v); }
+fn void  multiTexCoord2i (GLenum target, GLint s, GLint t) { return bindings.multiTexCoord2i(target,s,t); }
+fn void  multiTexCoord2iv (GLenum target,  GLint *v) { return bindings.multiTexCoord2iv(target,v); }
+fn void  multiTexCoord2s (GLenum target, GLshort s, GLshort t) { return bindings.multiTexCoord2s(target,s,t); }
+fn void  multiTexCoord2sv (GLenum target,  GLshort *v) { return bindings.multiTexCoord2sv(target,v); }
+fn void  multiTexCoord3d (GLenum target, GLdouble s, GLdouble t, GLdouble r) { return bindings.multiTexCoord3d(target,s,t,r); }
+fn void  multiTexCoord3dv (GLenum target,  GLdouble *v) { return bindings.multiTexCoord3dv(target,v); }
+fn void  multiTexCoord3f (GLenum target, GLfloat s, GLfloat t, GLfloat r) { return bindings.multiTexCoord3f(target,s,t,r); }
+fn void  multiTexCoord3fv (GLenum target,  GLfloat *v) { return bindings.multiTexCoord3fv(target,v); }
+fn void  multiTexCoord3i (GLenum target, GLint s, GLint t, GLint r) { return bindings.multiTexCoord3i(target,s,t,r); }
+fn void  multiTexCoord3iv (GLenum target,  GLint *v) { return bindings.multiTexCoord3iv(target,v); }
+fn void  multiTexCoord3s (GLenum target, GLshort s, GLshort t, GLshort r) { return bindings.multiTexCoord3s(target,s,t,r); }
+fn void  multiTexCoord3sv (GLenum target,  GLshort *v) { return bindings.multiTexCoord3sv(target,v); }
+fn void  multiTexCoord4d (GLenum target, GLdouble s, GLdouble t, GLdouble r, GLdouble q) { return bindings.multiTexCoord4d(target,s,t,r,q); }
+fn void  multiTexCoord4dv (GLenum target,  GLdouble *v) { return bindings.multiTexCoord4dv(target,v); }
+fn void  multiTexCoord4f (GLenum target, GLfloat s, GLfloat t, GLfloat r, GLfloat q) { return bindings.multiTexCoord4f(target,s,t,r,q); }
+fn void  multiTexCoord4fv (GLenum target,  GLfloat *v) { return bindings.multiTexCoord4fv(target,v); }
+fn void  multiTexCoord4i (GLenum target, GLint s, GLint t, GLint r, GLint q) { return bindings.multiTexCoord4i(target,s,t,r,q); }
+fn void  multiTexCoord4iv (GLenum target,  GLint *v) { return bindings.multiTexCoord4iv(target,v); }
+fn void  multiTexCoord4s (GLenum target, GLshort s, GLshort t, GLshort r, GLshort q) { return bindings.multiTexCoord4s(target,s,t,r,q); }
+fn void  multiTexCoord4sv (GLenum target,  GLshort *v) { return bindings.multiTexCoord4sv(target,v); }
+fn void  multiTexCoordP1ui (GLenum texture, GLenum value_type, GLuint coords) { return bindings.multiTexCoordP1ui(texture,value_type,coords); }
+fn void  multiTexCoordP1uiv (GLenum texture, GLenum value_type,  GLuint *coords) { return bindings.multiTexCoordP1uiv(texture,value_type,coords); }
+fn void  multiTexCoordP2ui (GLenum texture, GLenum value_type, GLuint coords) { return bindings.multiTexCoordP2ui(texture,value_type,coords); }
+fn void  multiTexCoordP2uiv (GLenum texture, GLenum value_type,  GLuint *coords) { return bindings.multiTexCoordP2uiv(texture,value_type,coords); }
+fn void  multiTexCoordP3ui (GLenum texture, GLenum value_type, GLuint coords) { return bindings.multiTexCoordP3ui(texture,value_type,coords); }
+fn void  multiTexCoordP3uiv (GLenum texture, GLenum value_type,  GLuint *coords) { return bindings.multiTexCoordP3uiv(texture,value_type,coords); }
+fn void  multiTexCoordP4ui (GLenum texture, GLenum value_type, GLuint coords) { return bindings.multiTexCoordP4ui(texture,value_type,coords); }
+fn void  multiTexCoordP4uiv (GLenum texture, GLenum value_type,  GLuint *coords) { return bindings.multiTexCoordP4uiv(texture,value_type,coords); }
+fn void  namedBufferData (GLuint buffer, GLsizeiptr size,  void *data, GLenum usage) { return bindings.namedBufferData(buffer,size,data,usage); }
+fn void  namedBufferStorage (GLuint buffer, GLsizeiptr size,  void *data, GLbitfield flags) { return bindings.namedBufferStorage(buffer,size,data,flags); }
+fn void  namedBufferSubData (GLuint buffer, GLintptr offset, GLsizeiptr size,  void *data) { return bindings.namedBufferSubData(buffer,offset,size,data); }
+fn void  namedFramebufferDrawBuffer (GLuint framebuffer, GLenum buf) { return bindings.namedFramebufferDrawBuffer(framebuffer,buf); }
+fn void  namedFramebufferDrawBuffers (GLuint framebuffer, GLsizei n,  GLenum *bufs) { return bindings.namedFramebufferDrawBuffers(framebuffer,n,bufs); }
+fn void  namedFramebufferParameteri (GLuint framebuffer, GLenum pname, GLint param) { return bindings.namedFramebufferParameteri(framebuffer,pname,param); }
+fn void  namedFramebufferReadBuffer (GLuint framebuffer, GLenum src) { return bindings.namedFramebufferReadBuffer(framebuffer,src); }
+fn void  namedFramebufferRenderbuffer (GLuint framebuffer, GLenum attachment, GLenum renderbuffertarget, GLuint renderbuffer) { return bindings.namedFramebufferRenderbuffer(framebuffer,attachment,renderbuffertarget,renderbuffer); }
+fn void  namedFramebufferTexture (GLuint framebuffer, GLenum attachment, GLuint texture, GLint level) { return bindings.namedFramebufferTexture(framebuffer,attachment,texture,level); }
+fn void  namedFramebufferTextureLayer (GLuint framebuffer, GLenum attachment, GLuint texture, GLint level, GLint layer) { return bindings.namedFramebufferTextureLayer(framebuffer,attachment,texture,level,layer); }
+fn void  namedRenderbufferStorage (GLuint renderbuffer, GLenum internalformat, GLsizei width, GLsizei height) { return bindings.namedRenderbufferStorage(renderbuffer,internalformat,width,height); }
+fn void  namedRenderbufferStorageMultisample (GLuint renderbuffer, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height) { return bindings.namedRenderbufferStorageMultisample(renderbuffer,samples,internalformat,width,height); }
+fn void  newList (GLuint list, GLenum mode) { return bindings.newList(list,mode); }
+fn void  normal3b (GLbyte nx, GLbyte ny, GLbyte nz) { return bindings.normal3b(nx,ny,nz); }
+fn void  normal3bv ( GLbyte *v) { return bindings.normal3bv(v); }
+fn void  normal3d (GLdouble nx, GLdouble ny, GLdouble nz) { return bindings.normal3d(nx,ny,nz); }
+fn void  normal3dv ( GLdouble *v) { return bindings.normal3dv(v); }
+fn void  normal3f (GLfloat nx, GLfloat ny, GLfloat nz) { return bindings.normal3f(nx,ny,nz); }
+fn void  normal3fv ( GLfloat *v) { return bindings.normal3fv(v); }
+fn void  normal3i (GLint nx, GLint ny, GLint nz) { return bindings.normal3i(nx,ny,nz); }
+fn void  normal3iv ( GLint *v) { return bindings.normal3iv(v); }
+fn void  normal3s (GLshort nx, GLshort ny, GLshort nz) { return bindings.normal3s(nx,ny,nz); }
+fn void  normal3sv ( GLshort *v) { return bindings.normal3sv(v); }
+fn void  normalP3ui (GLenum value_type, GLuint coords) { return bindings.normalP3ui(value_type,coords); }
+fn void  normalP3uiv (GLenum value_type,  GLuint *coords) { return bindings.normalP3uiv(value_type,coords); }
+fn void  normalPointer (GLenum value_type, GLsizei stride,  void *pointer) { return bindings.normalPointer(value_type,stride,pointer); }
+fn void  objectLabel (GLenum identifier, GLuint name, GLsizei length,  GLchar *label) { return bindings.objectLabel(identifier,name,length,label); }
+fn void  objectPtrLabel ( void *ptr, GLsizei length,  GLchar *label) { return bindings.objectPtrLabel(ptr,length,label); }
+fn void  ortho (GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble zNear, GLdouble zFar) { return bindings.ortho(left,right,bottom,top,zNear,zFar); }
+fn void  passThrough (GLfloat token) { return bindings.passThrough(token); }
+fn void  patchParameterfv (GLenum pname,  GLfloat *values) { return bindings.patchParameterfv(pname,values); }
+fn void  patchParameteri (GLenum pname, GLint value) { return bindings.patchParameteri(pname,value); }
+fn void  pauseTransformFeedback () { return bindings.pauseTransformFeedback(); }
+fn void  pixelMapfv (GLenum map, GLsizei mapsize,  GLfloat *values) { return bindings.pixelMapfv(map,mapsize,values); }
+fn void  pixelMapuiv (GLenum map, GLsizei mapsize,  GLuint *values) { return bindings.pixelMapuiv(map,mapsize,values); }
+fn void  pixelMapusv (GLenum map, GLsizei mapsize,  GLushort *values) { return bindings.pixelMapusv(map,mapsize,values); }
+fn void  pixelStoref (GLenum pname, GLfloat param) { return bindings.pixelStoref(pname,param); }
+fn void  pixelStorei (GLenum pname, GLint param) { return bindings.pixelStorei(pname,param); }
+fn void  pixelTransferf (GLenum pname, GLfloat param) { return bindings.pixelTransferf(pname,param); }
+fn void  pixelTransferi (GLenum pname, GLint param) { return bindings.pixelTransferi(pname,param); }
+fn void  pixelZoom (GLfloat xfactor, GLfloat yfactor) { return bindings.pixelZoom(xfactor,yfactor); }
+fn void  pointSize (GLfloat size) { return bindings.pointSize(size); }
+fn void  polygonMode (GLenum face, GLenum mode) { return bindings.polygonMode(face,mode); }
+fn void  polygonOffset (GLfloat factor, GLfloat units) { return bindings.polygonOffset(factor,units); }
+fn void  polygonOffsetClamp (GLfloat factor, GLfloat units, GLfloat clamp) { return bindings.polygonOffsetClamp(factor,units,clamp); }
+fn void  polygonStipple ( GLubyte *mask) { return bindings.polygonStipple(mask); }
+fn void  popAttrib () { return bindings.popAttrib(); }
+fn void  popClientAttrib () { return bindings.popClientAttrib(); }
+fn void  popDebugGroup () { return bindings.popDebugGroup(); }
+fn void  popMatrix () { return bindings.popMatrix(); }
+fn void  popName () { return bindings.popName(); }
+fn void  primitiveRestartIndex (GLuint index) { return bindings.primitiveRestartIndex(index); }
+fn void  prioritizeTextures (GLsizei n,  GLuint *textures,  GLfloat *priorities) { return bindings.prioritizeTextures(n,textures,priorities); }
+fn void  programBinary (GLuint program, GLenum binaryFormat,  void *binary, GLsizei length) { return bindings.programBinary(program,binaryFormat,binary,length); }
+fn void  programParameteri (GLuint program, GLenum pname, GLint value) { return bindings.programParameteri(program,pname,value); }
+fn void  programUniform1d (GLuint program, GLint location, GLdouble v0) { return bindings.programUniform1d(program,location,v0); }
+fn void  programUniform1dv (GLuint program, GLint location, GLsizei count,  GLdouble *value) { return bindings.programUniform1dv(program,location,count,value); }
+fn void  programUniform1f (GLuint program, GLint location, GLfloat v0) { return bindings.programUniform1f(program,location,v0); }
+fn void  programUniform1fv (GLuint program, GLint location, GLsizei count,  GLfloat *value) { return bindings.programUniform1fv(program,location,count,value); }
+fn void  programUniform1i (GLuint program, GLint location, GLint v0) { return bindings.programUniform1i(program,location,v0); }
+fn void  programUniform1iv (GLuint program, GLint location, GLsizei count,  GLint *value) { return bindings.programUniform1iv(program,location,count,value); }
+fn void  programUniform1ui (GLuint program, GLint location, GLuint v0) { return bindings.programUniform1ui(program,location,v0); }
+fn void  programUniform1uiv (GLuint program, GLint location, GLsizei count,  GLuint *value) { return bindings.programUniform1uiv(program,location,count,value); }
+fn void  programUniform2d (GLuint program, GLint location, GLdouble v0, GLdouble v1) { return bindings.programUniform2d(program,location,v0,v1); }
+fn void  programUniform2dv (GLuint program, GLint location, GLsizei count,  GLdouble *value) { return bindings.programUniform2dv(program,location,count,value); }
+fn void  programUniform2f (GLuint program, GLint location, GLfloat v0, GLfloat v1) { return bindings.programUniform2f(program,location,v0,v1); }
+fn void  programUniform2fv (GLuint program, GLint location, GLsizei count,  GLfloat *value) { return bindings.programUniform2fv(program,location,count,value); }
+fn void  programUniform2i (GLuint program, GLint location, GLint v0, GLint v1) { return bindings.programUniform2i(program,location,v0,v1); }
+fn void  programUniform2iv (GLuint program, GLint location, GLsizei count,  GLint *value) { return bindings.programUniform2iv(program,location,count,value); }
+fn void  programUniform2ui (GLuint program, GLint location, GLuint v0, GLuint v1) { return bindings.programUniform2ui(program,location,v0,v1); }
+fn void  programUniform2uiv (GLuint program, GLint location, GLsizei count,  GLuint *value) { return bindings.programUniform2uiv(program,location,count,value); }
+fn void  programUniform3d (GLuint program, GLint location, GLdouble v0, GLdouble v1, GLdouble v2) { return bindings.programUniform3d(program,location,v0,v1,v2); }
+fn void  programUniform3dv (GLuint program, GLint location, GLsizei count,  GLdouble *value) { return bindings.programUniform3dv(program,location,count,value); }
+fn void  programUniform3f (GLuint program, GLint location, GLfloat v0, GLfloat v1, GLfloat v2) { return bindings.programUniform3f(program,location,v0,v1,v2); }
+fn void  programUniform3fv (GLuint program, GLint location, GLsizei count,  GLfloat *value) { return bindings.programUniform3fv(program,location,count,value); }
+fn void  programUniform3i (GLuint program, GLint location, GLint v0, GLint v1, GLint v2) { return bindings.programUniform3i(program,location,v0,v1,v2); }
+fn void  programUniform3iv (GLuint program, GLint location, GLsizei count,  GLint *value) { return bindings.programUniform3iv(program,location,count,value); }
+fn void  programUniform3ui (GLuint program, GLint location, GLuint v0, GLuint v1, GLuint v2) { return bindings.programUniform3ui(program,location,v0,v1,v2); }
+fn void  programUniform3uiv (GLuint program, GLint location, GLsizei count,  GLuint *value) { return bindings.programUniform3uiv(program,location,count,value); }
+fn void  programUniform4d (GLuint program, GLint location, GLdouble v0, GLdouble v1, GLdouble v2, GLdouble v3) { return bindings.programUniform4d(program,location,v0,v1,v2,v3); }
+fn void  programUniform4dv (GLuint program, GLint location, GLsizei count,  GLdouble *value) { return bindings.programUniform4dv(program,location,count,value); }
+fn void  programUniform4f (GLuint program, GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3) { return bindings.programUniform4f(program,location,v0,v1,v2,v3); }
+fn void  programUniform4fv (GLuint program, GLint location, GLsizei count,  GLfloat *value) { return bindings.programUniform4fv(program,location,count,value); }
+fn void  programUniform4i (GLuint program, GLint location, GLint v0, GLint v1, GLint v2, GLint v3) { return bindings.programUniform4i(program,location,v0,v1,v2,v3); }
+fn void  programUniform4iv (GLuint program, GLint location, GLsizei count,  GLint *value) { return bindings.programUniform4iv(program,location,count,value); }
+fn void  programUniform4ui (GLuint program, GLint location, GLuint v0, GLuint v1, GLuint v2, GLuint v3) { return bindings.programUniform4ui(program,location,v0,v1,v2,v3); }
+fn void  programUniform4uiv (GLuint program, GLint location, GLsizei count,  GLuint *value) { return bindings.programUniform4uiv(program,location,count,value); }
+fn void  programUniformMatrix2dv (GLuint program, GLint location, GLsizei count, GLboolean transpose,  GLdouble *value) { return bindings.programUniformMatrix2dv(program,location,count,transpose,value); }
+fn void  programUniformMatrix2fv (GLuint program, GLint location, GLsizei count, GLboolean transpose,  GLfloat *value) { return bindings.programUniformMatrix2fv(program,location,count,transpose,value); }
+fn void  programUniformMatrix2x3dv (GLuint program, GLint location, GLsizei count, GLboolean transpose,  GLdouble *value) { return bindings.programUniformMatrix2x3dv(program,location,count,transpose,value); }
+fn void  programUniformMatrix2x3fv (GLuint program, GLint location, GLsizei count, GLboolean transpose,  GLfloat *value) { return bindings.programUniformMatrix2x3fv(program,location,count,transpose,value); }
+fn void  programUniformMatrix2x4dv (GLuint program, GLint location, GLsizei count, GLboolean transpose,  GLdouble *value) { return bindings.programUniformMatrix2x4dv(program,location,count,transpose,value); }
+fn void  programUniformMatrix2x4fv (GLuint program, GLint location, GLsizei count, GLboolean transpose,  GLfloat *value) { return bindings.programUniformMatrix2x4fv(program,location,count,transpose,value); }
+fn void  programUniformMatrix3dv (GLuint program, GLint location, GLsizei count, GLboolean transpose,  GLdouble *value) { return bindings.programUniformMatrix3dv(program,location,count,transpose,value); }
+fn void  programUniformMatrix3fv (GLuint program, GLint location, GLsizei count, GLboolean transpose,  GLfloat *value) { return bindings.programUniformMatrix3fv(program,location,count,transpose,value); }
+fn void  programUniformMatrix3x2dv (GLuint program, GLint location, GLsizei count, GLboolean transpose,  GLdouble *value) { return bindings.programUniformMatrix3x2dv(program,location,count,transpose,value); }
+fn void  programUniformMatrix3x2fv (GLuint program, GLint location, GLsizei count, GLboolean transpose,  GLfloat *value) { return bindings.programUniformMatrix3x2fv(program,location,count,transpose,value); }
+fn void  programUniformMatrix3x4dv (GLuint program, GLint location, GLsizei count, GLboolean transpose,  GLdouble *value) { return bindings.programUniformMatrix3x4dv(program,location,count,transpose,value); }
+fn void  programUniformMatrix3x4fv (GLuint program, GLint location, GLsizei count, GLboolean transpose,  GLfloat *value) { return bindings.programUniformMatrix3x4fv(program,location,count,transpose,value); }
+fn void  programUniformMatrix4dv (GLuint program, GLint location, GLsizei count, GLboolean transpose,  GLdouble *value) { return bindings.programUniformMatrix4dv(program,location,count,transpose,value); }
+fn void  programUniformMatrix4fv (GLuint program, GLint location, GLsizei count, GLboolean transpose,  GLfloat *value) { return bindings.programUniformMatrix4fv(program,location,count,transpose,value); }
+fn void  programUniformMatrix4x2dv (GLuint program, GLint location, GLsizei count, GLboolean transpose,  GLdouble *value) { return bindings.programUniformMatrix4x2dv(program,location,count,transpose,value); }
+fn void  programUniformMatrix4x2fv (GLuint program, GLint location, GLsizei count, GLboolean transpose,  GLfloat *value) { return bindings.programUniformMatrix4x2fv(program,location,count,transpose,value); }
+fn void  programUniformMatrix4x3dv (GLuint program, GLint location, GLsizei count, GLboolean transpose,  GLdouble *value) { return bindings.programUniformMatrix4x3dv(program,location,count,transpose,value); }
+fn void  programUniformMatrix4x3fv (GLuint program, GLint location, GLsizei count, GLboolean transpose,  GLfloat *value) { return bindings.programUniformMatrix4x3fv(program,location,count,transpose,value); }
+fn void  provokingVertex (GLenum mode) { return bindings.provokingVertex(mode); }
+fn void  pushAttrib (GLbitfield mask) { return bindings.pushAttrib(mask); }
+fn void  pushClientAttrib (GLbitfield mask) { return bindings.pushClientAttrib(mask); }
+fn void  pushDebugGroup (GLenum source, GLuint id, GLsizei length,  GLchar *message) { return bindings.pushDebugGroup(source,id,length,message); }
+fn void  pushMatrix () { return bindings.pushMatrix(); }
+fn void  pushName (GLuint name) { return bindings.pushName(name); }
+fn void  queryCounter (GLuint id, GLenum target) { return bindings.queryCounter(id,target); }
+fn void  rasterPos2d (GLdouble x, GLdouble y) { return bindings.rasterPos2d(x,y); }
+fn void  rasterPos2dv ( GLdouble *v) { return bindings.rasterPos2dv(v); }
+fn void  rasterPos2f (GLfloat x, GLfloat y) { return bindings.rasterPos2f(x,y); }
+fn void  rasterPos2fv ( GLfloat *v) { return bindings.rasterPos2fv(v); }
+fn void  rasterPos2i (GLint x, GLint y) { return bindings.rasterPos2i(x,y); }
+fn void  rasterPos2iv ( GLint *v) { return bindings.rasterPos2iv(v); }
+fn void  rasterPos2s (GLshort x, GLshort y) { return bindings.rasterPos2s(x,y); }
+fn void  rasterPos2sv ( GLshort *v) { return bindings.rasterPos2sv(v); }
+fn void  rasterPos3d (GLdouble x, GLdouble y, GLdouble z) { return bindings.rasterPos3d(x,y,z); }
+fn void  rasterPos3dv ( GLdouble *v) { return bindings.rasterPos3dv(v); }
+fn void  rasterPos3f (GLfloat x, GLfloat y, GLfloat z) { return bindings.rasterPos3f(x,y,z); }
+fn void  rasterPos3fv ( GLfloat *v) { return bindings.rasterPos3fv(v); }
+fn void  rasterPos3i (GLint x, GLint y, GLint z) { return bindings.rasterPos3i(x,y,z); }
+fn void  rasterPos3iv ( GLint *v) { return bindings.rasterPos3iv(v); }
+fn void  rasterPos3s (GLshort x, GLshort y, GLshort z) { return bindings.rasterPos3s(x,y,z); }
+fn void  rasterPos3sv ( GLshort *v) { return bindings.rasterPos3sv(v); }
+fn void  rasterPos4d (GLdouble x, GLdouble y, GLdouble z, GLdouble w) { return bindings.rasterPos4d(x,y,z,w); }
+fn void  rasterPos4dv ( GLdouble *v) { return bindings.rasterPos4dv(v); }
+fn void  rasterPos4f (GLfloat x, GLfloat y, GLfloat z, GLfloat w) { return bindings.rasterPos4f(x,y,z,w); }
+fn void  rasterPos4fv ( GLfloat *v) { return bindings.rasterPos4fv(v); }
+fn void  rasterPos4i (GLint x, GLint y, GLint z, GLint w) { return bindings.rasterPos4i(x,y,z,w); }
+fn void  rasterPos4iv ( GLint *v) { return bindings.rasterPos4iv(v); }
+fn void  rasterPos4s (GLshort x, GLshort y, GLshort z, GLshort w) { return bindings.rasterPos4s(x,y,z,w); }
+fn void  rasterPos4sv ( GLshort *v) { return bindings.rasterPos4sv(v); }
+fn void  readBuffer (GLenum src) { return bindings.readBuffer(src); }
+fn void  readPixels (GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum value_type, void *pixels) { return bindings.readPixels(x,y,width,height,format,value_type,pixels); }
+fn void  readnPixels (GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum value_type, GLsizei bufSize, void *data) { return bindings.readnPixels(x,y,width,height,format,value_type,bufSize,data); }
+fn void  rectd (GLdouble x1, GLdouble y1, GLdouble x2, GLdouble y2) { return bindings.rectd(x1,y1,x2,y2); }
+fn void  rectdv ( GLdouble *v1,  GLdouble *v2) { return bindings.rectdv(v1,v2); }
+fn void  rectf (GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2) { return bindings.rectf(x1,y1,x2,y2); }
+fn void  rectfv ( GLfloat *v1,  GLfloat *v2) { return bindings.rectfv(v1,v2); }
+fn void  recti (GLint x1, GLint y1, GLint x2, GLint y2) { return bindings.recti(x1,y1,x2,y2); }
+fn void  rectiv ( GLint *v1,  GLint *v2) { return bindings.rectiv(v1,v2); }
+fn void  rects (GLshort x1, GLshort y1, GLshort x2, GLshort y2) { return bindings.rects(x1,y1,x2,y2); }
+fn void  rectsv ( GLshort *v1,  GLshort *v2) { return bindings.rectsv(v1,v2); }
+fn void  releaseShaderCompiler () { return bindings.releaseShaderCompiler(); }
+fn GLint  renderMode (GLenum mode) { return bindings.renderMode(mode); }
+fn void  renderbufferStorage (GLenum target, GLenum internalformat, GLsizei width, GLsizei height) { return bindings.renderbufferStorage(target,internalformat,width,height); }
+fn void  renderbufferStorageMultisample (GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height) { return bindings.renderbufferStorageMultisample(target,samples,internalformat,width,height); }
+fn void  resumeTransformFeedback () { return bindings.resumeTransformFeedback(); }
+fn void  rotated (GLdouble angle, GLdouble x, GLdouble y, GLdouble z) { return bindings.rotated(angle,x,y,z); }
+fn void  rotatef (GLfloat angle, GLfloat x, GLfloat y, GLfloat z) { return bindings.rotatef(angle,x,y,z); }
+fn void  sampleMaski (GLuint maskNumber, GLbitfield mask) { return bindings.sampleMaski(maskNumber,mask); }
+fn void  samplerParameterIiv (GLuint sampler, GLenum pname,  GLint *param) { return bindings.samplerParameterIiv(sampler,pname,param); }
+fn void  samplerParameterIuiv (GLuint sampler, GLenum pname,  GLuint *param) { return bindings.samplerParameterIuiv(sampler,pname,param); }
+fn void  samplerParameterf (GLuint sampler, GLenum pname, GLfloat param) { return bindings.samplerParameterf(sampler,pname,param); }
+fn void  samplerParameterfv (GLuint sampler, GLenum pname,  GLfloat *param) { return bindings.samplerParameterfv(sampler,pname,param); }
+fn void  samplerParameteri (GLuint sampler, GLenum pname, GLint param) { return bindings.samplerParameteri(sampler,pname,param); }
+fn void  samplerParameteriv (GLuint sampler, GLenum pname,  GLint *param) { return bindings.samplerParameteriv(sampler,pname,param); }
+fn void  scaled (GLdouble x, GLdouble y, GLdouble z) { return bindings.scaled(x,y,z); }
+fn void  scalef (GLfloat x, GLfloat y, GLfloat z) { return bindings.scalef(x,y,z); }
+fn void  scissor (GLint x, GLint y, GLsizei width, GLsizei height) { return bindings.scissor(x,y,width,height); }
+fn void  scissorArrayv (GLuint first, GLsizei count,  GLint *v) { return bindings.scissorArrayv(first,count,v); }
+fn void  scissorIndexed (GLuint index, GLint left, GLint bottom, GLsizei width, GLsizei height) { return bindings.scissorIndexed(index,left,bottom,width,height); }
+fn void  scissorIndexedv (GLuint index,  GLint *v) { return bindings.scissorIndexedv(index,v); }
+fn void  secondaryColor3b (GLbyte red, GLbyte green, GLbyte blue) { return bindings.secondaryColor3b(red,green,blue); }
+fn void  secondaryColor3bv ( GLbyte *v) { return bindings.secondaryColor3bv(v); }
+fn void  secondaryColor3d (GLdouble red, GLdouble green, GLdouble blue) { return bindings.secondaryColor3d(red,green,blue); }
+fn void  secondaryColor3dv ( GLdouble *v) { return bindings.secondaryColor3dv(v); }
+fn void  secondaryColor3f (GLfloat red, GLfloat green, GLfloat blue) { return bindings.secondaryColor3f(red,green,blue); }
+fn void  secondaryColor3fv ( GLfloat *v) { return bindings.secondaryColor3fv(v); }
+fn void  secondaryColor3i (GLint red, GLint green, GLint blue) { return bindings.secondaryColor3i(red,green,blue); }
+fn void  secondaryColor3iv ( GLint *v) { return bindings.secondaryColor3iv(v); }
+fn void  secondaryColor3s (GLshort red, GLshort green, GLshort blue) { return bindings.secondaryColor3s(red,green,blue); }
+fn void  secondaryColor3sv ( GLshort *v) { return bindings.secondaryColor3sv(v); }
+fn void  secondaryColor3ub (GLubyte red, GLubyte green, GLubyte blue) { return bindings.secondaryColor3ub(red,green,blue); }
+fn void  secondaryColor3ubv ( GLubyte *v) { return bindings.secondaryColor3ubv(v); }
+fn void  secondaryColor3ui (GLuint red, GLuint green, GLuint blue) { return bindings.secondaryColor3ui(red,green,blue); }
+fn void  secondaryColor3uiv ( GLuint *v) { return bindings.secondaryColor3uiv(v); }
+fn void  secondaryColor3us (GLushort red, GLushort green, GLushort blue) { return bindings.secondaryColor3us(red,green,blue); }
+fn void  secondaryColor3usv ( GLushort *v) { return bindings.secondaryColor3usv(v); }
+fn void  secondaryColorP3ui (GLenum value_type, GLuint color) { return bindings.secondaryColorP3ui(value_type,color); }
+fn void  secondaryColorP3uiv (GLenum value_type,  GLuint *color) { return bindings.secondaryColorP3uiv(value_type,color); }
+fn void  secondaryColorPointer (GLint size, GLenum value_type, GLsizei stride,  void *pointer) { return bindings.secondaryColorPointer(size,value_type,stride,pointer); }
+fn void  selectBuffer (GLsizei size, GLuint *buffer) { return bindings.selectBuffer(size,buffer); }
+fn void  shadeModel (GLenum mode) { return bindings.shadeModel(mode); }
+fn void  shaderBinary (GLsizei count,  GLuint *shaders, GLenum binaryFormat,  void *binary, GLsizei length) { return bindings.shaderBinary(count,shaders,binaryFormat,binary,length); }
+fn void  shaderSource (GLuint shader, GLsizei count,  GLchar **string,  GLint *length) { return bindings.shaderSource(shader,count,string,length); }
+fn void  shaderStorageBlockBinding (GLuint program, GLuint storageBlockIndex, GLuint storageBlockBinding) { return bindings.shaderStorageBlockBinding(program,storageBlockIndex,storageBlockBinding); }
+fn void  specializeShader (GLuint shader,  GLchar *pEntryPoint, GLuint numSpecializationConstants,  GLuint *pConstantIndex,  GLuint *pConstantValue) { return bindings.specializeShader(shader,pEntryPoint,numSpecializationConstants,pConstantIndex,pConstantValue); }
+fn void  stencilFunc (GLenum func_param, GLint ref, GLuint mask) { return bindings.stencilFunc(func_param,ref,mask); }
+fn void  stencilFuncSeparate (GLenum face, GLenum func_param, GLint ref, GLuint mask) { return bindings.stencilFuncSeparate(face,func_param,ref,mask); }
+fn void  stencilMask (GLuint mask) { return bindings.stencilMask(mask); }
+fn void  stencilMaskSeparate (GLenum face, GLuint mask) { return bindings.stencilMaskSeparate(face,mask); }
+fn void  stencilOp (GLenum fail, GLenum zfail, GLenum zpass) { return bindings.stencilOp(fail,zfail,zpass); }
+fn void  stencilOpSeparate (GLenum face, GLenum sfail, GLenum dpfail, GLenum dppass) { return bindings.stencilOpSeparate(face,sfail,dpfail,dppass); }
+fn void  texBuffer (GLenum target, GLenum internalformat, GLuint buffer) { return bindings.texBuffer(target,internalformat,buffer); }
+fn void  texBufferRange (GLenum target, GLenum internalformat, GLuint buffer, GLintptr offset, GLsizeiptr size) { return bindings.texBufferRange(target,internalformat,buffer,offset,size); }
+fn void  texCoord1d (GLdouble s) { return bindings.texCoord1d(s); }
+fn void  texCoord1dv ( GLdouble *v) { return bindings.texCoord1dv(v); }
+fn void  texCoord1f (GLfloat s) { return bindings.texCoord1f(s); }
+fn void  texCoord1fv ( GLfloat *v) { return bindings.texCoord1fv(v); }
+fn void  texCoord1i (GLint s) { return bindings.texCoord1i(s); }
+fn void  texCoord1iv ( GLint *v) { return bindings.texCoord1iv(v); }
+fn void  texCoord1s (GLshort s) { return bindings.texCoord1s(s); }
+fn void  texCoord1sv ( GLshort *v) { return bindings.texCoord1sv(v); }
+fn void  texCoord2d (GLdouble s, GLdouble t) { return bindings.texCoord2d(s,t); }
+fn void  texCoord2dv ( GLdouble *v) { return bindings.texCoord2dv(v); }
+fn void  texCoord2f (GLfloat s, GLfloat t) { return bindings.texCoord2f(s,t); }
+fn void  texCoord2fv ( GLfloat *v) { return bindings.texCoord2fv(v); }
+fn void  texCoord2i (GLint s, GLint t) { return bindings.texCoord2i(s,t); }
+fn void  texCoord2iv ( GLint *v) { return bindings.texCoord2iv(v); }
+fn void  texCoord2s (GLshort s, GLshort t) { return bindings.texCoord2s(s,t); }
+fn void  texCoord2sv ( GLshort *v) { return bindings.texCoord2sv(v); }
+fn void  texCoord3d (GLdouble s, GLdouble t, GLdouble r) { return bindings.texCoord3d(s,t,r); }
+fn void  texCoord3dv ( GLdouble *v) { return bindings.texCoord3dv(v); }
+fn void  texCoord3f (GLfloat s, GLfloat t, GLfloat r) { return bindings.texCoord3f(s,t,r); }
+fn void  texCoord3fv ( GLfloat *v) { return bindings.texCoord3fv(v); }
+fn void  texCoord3i (GLint s, GLint t, GLint r) { return bindings.texCoord3i(s,t,r); }
+fn void  texCoord3iv ( GLint *v) { return bindings.texCoord3iv(v); }
+fn void  texCoord3s (GLshort s, GLshort t, GLshort r) { return bindings.texCoord3s(s,t,r); }
+fn void  texCoord3sv ( GLshort *v) { return bindings.texCoord3sv(v); }
+fn void  texCoord4d (GLdouble s, GLdouble t, GLdouble r, GLdouble q) { return bindings.texCoord4d(s,t,r,q); }
+fn void  texCoord4dv ( GLdouble *v) { return bindings.texCoord4dv(v); }
+fn void  texCoord4f (GLfloat s, GLfloat t, GLfloat r, GLfloat q) { return bindings.texCoord4f(s,t,r,q); }
+fn void  texCoord4fv ( GLfloat *v) { return bindings.texCoord4fv(v); }
+fn void  texCoord4i (GLint s, GLint t, GLint r, GLint q) { return bindings.texCoord4i(s,t,r,q); }
+fn void  texCoord4iv ( GLint *v) { return bindings.texCoord4iv(v); }
+fn void  texCoord4s (GLshort s, GLshort t, GLshort r, GLshort q) { return bindings.texCoord4s(s,t,r,q); }
+fn void  texCoord4sv ( GLshort *v) { return bindings.texCoord4sv(v); }
+fn void  texCoordP1ui (GLenum value_type, GLuint coords) { return bindings.texCoordP1ui(value_type,coords); }
+fn void  texCoordP1uiv (GLenum value_type,  GLuint *coords) { return bindings.texCoordP1uiv(value_type,coords); }
+fn void  texCoordP2ui (GLenum value_type, GLuint coords) { return bindings.texCoordP2ui(value_type,coords); }
+fn void  texCoordP2uiv (GLenum value_type,  GLuint *coords) { return bindings.texCoordP2uiv(value_type,coords); }
+fn void  texCoordP3ui (GLenum value_type, GLuint coords) { return bindings.texCoordP3ui(value_type,coords); }
+fn void  texCoordP3uiv (GLenum value_type,  GLuint *coords) { return bindings.texCoordP3uiv(value_type,coords); }
+fn void  texCoordP4ui (GLenum value_type, GLuint coords) { return bindings.texCoordP4ui(value_type,coords); }
+fn void  texCoordP4uiv (GLenum value_type,  GLuint *coords) { return bindings.texCoordP4uiv(value_type,coords); }
+fn void  texCoordPointer (GLint size, GLenum value_type, GLsizei stride,  void *pointer) { return bindings.texCoordPointer(size,value_type,stride,pointer); }
+fn void  texEnvf (GLenum target, GLenum pname, GLfloat param) { return bindings.texEnvf(target,pname,param); }
+fn void  texEnvfv (GLenum target, GLenum pname,  GLfloat *params) { return bindings.texEnvfv(target,pname,params); }
+fn void  texEnvi (GLenum target, GLenum pname, GLint param) { return bindings.texEnvi(target,pname,param); }
+fn void  texEnviv (GLenum target, GLenum pname,  GLint *params) { return bindings.texEnviv(target,pname,params); }
+fn void  texGend (GLenum coord, GLenum pname, GLdouble param) { return bindings.texGend(coord,pname,param); }
+fn void  texGendv (GLenum coord, GLenum pname,  GLdouble *params) { return bindings.texGendv(coord,pname,params); }
+fn void  texGenf (GLenum coord, GLenum pname, GLfloat param) { return bindings.texGenf(coord,pname,param); }
+fn void  texGenfv (GLenum coord, GLenum pname,  GLfloat *params) { return bindings.texGenfv(coord,pname,params); }
+fn void  texGeni (GLenum coord, GLenum pname, GLint param) { return bindings.texGeni(coord,pname,param); }
+fn void  texGeniv (GLenum coord, GLenum pname,  GLint *params) { return bindings.texGeniv(coord,pname,params); }
+fn void  texImage1D (GLenum target, GLint level, GLint internalformat, GLsizei width, GLint border, GLenum format, GLenum value_type,  void *pixels) { return bindings.texImage1D(target,level,internalformat,width,border,format,value_type,pixels); }
+fn void  texImage2D (GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLint border, GLenum format, GLenum value_type,  void *pixels) { return bindings.texImage2D(target,level,internalformat,width,height,border,format,value_type,pixels); }
+fn void  texImage2DMultisample (GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height, GLboolean fixedsamplelocations) { return bindings.texImage2DMultisample(target,samples,internalformat,width,height,fixedsamplelocations); }
+fn void  texImage3DMultisample (GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height, GLsizei depth, GLboolean fixedsamplelocations) { return bindings.texImage3DMultisample(target,samples,internalformat,width,height,depth,fixedsamplelocations); }
+fn void  texParameterIiv (GLenum target, GLenum pname,  GLint *params) { return bindings.texParameterIiv(target,pname,params); }
+fn void  texParameterIuiv (GLenum target, GLenum pname,  GLuint *params) { return bindings.texParameterIuiv(target,pname,params); }
+fn void  texParameterf (GLenum target, GLenum pname, GLfloat param) { return bindings.texParameterf(target,pname,param); }
+fn void  texParameterfv (GLenum target, GLenum pname,  GLfloat *params) { return bindings.texParameterfv(target,pname,params); }
+fn void  texParameteri (GLenum target, GLenum pname, GLint param) { return bindings.texParameteri(target,pname,param); }
+fn void  texParameteriv (GLenum target, GLenum pname,  GLint *params) { return bindings.texParameteriv(target,pname,params); }
+fn void  texStorage1D (GLenum target, GLsizei levels, GLenum internalformat, GLsizei width) { return bindings.texStorage1D(target,levels,internalformat,width); }
+fn void  texStorage2D (GLenum target, GLsizei levels, GLenum internalformat, GLsizei width, GLsizei height) { return bindings.texStorage2D(target,levels,internalformat,width,height); }
+fn void  texStorage2DMultisample (GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height, GLboolean fixedsamplelocations) { return bindings.texStorage2DMultisample(target,samples,internalformat,width,height,fixedsamplelocations); }
+fn void  texStorage3D (GLenum target, GLsizei levels, GLenum internalformat, GLsizei width, GLsizei height, GLsizei depth) { return bindings.texStorage3D(target,levels,internalformat,width,height,depth); }
+fn void  texStorage3DMultisample (GLenum target, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height, GLsizei depth, GLboolean fixedsamplelocations) { return bindings.texStorage3DMultisample(target,samples,internalformat,width,height,depth,fixedsamplelocations); }
+fn void  texSubImage1D (GLenum target, GLint level, GLint xoffset, GLsizei width, GLenum format, GLenum value_type,  void *pixels) { return bindings.texSubImage1D(target,level,xoffset,width,format,value_type,pixels); }
+fn void  texSubImage2D (GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLenum value_type,  void *pixels) { return bindings.texSubImage2D(target,level,xoffset,yoffset,width,height,format,value_type,pixels); }
+fn void  textureBarrier () { return bindings.textureBarrier(); }
+fn void  textureBuffer (GLuint texture, GLenum internalformat, GLuint buffer) { return bindings.textureBuffer(texture,internalformat,buffer); }
+fn void  textureBufferRange (GLuint texture, GLenum internalformat, GLuint buffer, GLintptr offset, GLsizeiptr size) { return bindings.textureBufferRange(texture,internalformat,buffer,offset,size); }
+fn void  textureParameterIiv (GLuint texture, GLenum pname,  GLint *params) { return bindings.textureParameterIiv(texture,pname,params); }
+fn void  textureParameterIuiv (GLuint texture, GLenum pname,  GLuint *params) { return bindings.textureParameterIuiv(texture,pname,params); }
+fn void  textureParameterf (GLuint texture, GLenum pname, GLfloat param) { return bindings.textureParameterf(texture,pname,param); }
+fn void  textureParameterfv (GLuint texture, GLenum pname,  GLfloat *param) { return bindings.textureParameterfv(texture,pname,param); }
+fn void  textureParameteri (GLuint texture, GLenum pname, GLint param) { return bindings.textureParameteri(texture,pname,param); }
+fn void  textureParameteriv (GLuint texture, GLenum pname,  GLint *param) { return bindings.textureParameteriv(texture,pname,param); }
+fn void  textureStorage1D (GLuint texture, GLsizei levels, GLenum internalformat, GLsizei width) { return bindings.textureStorage1D(texture,levels,internalformat,width); }
+fn void  textureStorage2D (GLuint texture, GLsizei levels, GLenum internalformat, GLsizei width, GLsizei height) { return bindings.textureStorage2D(texture,levels,internalformat,width,height); }
+fn void  textureStorage2DMultisample (GLuint texture, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height, GLboolean fixedsamplelocations) { return bindings.textureStorage2DMultisample(texture,samples,internalformat,width,height,fixedsamplelocations); }
+fn void  textureStorage3D (GLuint texture, GLsizei levels, GLenum internalformat, GLsizei width, GLsizei height, GLsizei depth) { return bindings.textureStorage3D(texture,levels,internalformat,width,height,depth); }
+fn void  textureStorage3DMultisample (GLuint texture, GLsizei samples, GLenum internalformat, GLsizei width, GLsizei height, GLsizei depth, GLboolean fixedsamplelocations) { return bindings.textureStorage3DMultisample(texture,samples,internalformat,width,height,depth,fixedsamplelocations); }
+fn void  textureSubImage1D (GLuint texture, GLint level, GLint xoffset, GLsizei width, GLenum format, GLenum value_type,  void *pixels) { return bindings.textureSubImage1D(texture,level,xoffset,width,format,value_type,pixels); }
+fn void  textureSubImage2D (GLuint texture, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLenum value_type,  void *pixels) { return bindings.textureSubImage2D(texture,level,xoffset,yoffset,width,height,format,value_type,pixels); }
+fn void  textureSubImage3D (GLuint texture, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum value_type,  void *pixels) { return bindings.textureSubImage3D(texture,level,xoffset,yoffset,zoffset,width,height,depth,format,value_type,pixels); }
+fn void  textureView (GLuint texture, GLenum target, GLuint origtexture, GLenum internalformat, GLuint minlevel, GLuint numlevels, GLuint minlayer, GLuint numlayers) { return bindings.textureView(texture,target,origtexture,internalformat,minlevel,numlevels,minlayer,numlayers); }
+fn void  transformFeedbackBufferBase (GLuint xfb, GLuint index, GLuint buffer) { return bindings.transformFeedbackBufferBase(xfb,index,buffer); }
+fn void  transformFeedbackBufferRange (GLuint xfb, GLuint index, GLuint buffer, GLintptr offset, GLsizeiptr size) { return bindings.transformFeedbackBufferRange(xfb,index,buffer,offset,size); }
+fn void  transformFeedbackVaryings (GLuint program, GLsizei count,  GLchar **varyings, GLenum bufferMode) { return bindings.transformFeedbackVaryings(program,count,varyings,bufferMode); }
+fn void  translated (GLdouble x, GLdouble y, GLdouble z) { return bindings.translated(x,y,z); }
+fn void  translatef (GLfloat x, GLfloat y, GLfloat z) { return bindings.translatef(x,y,z); }
+fn void  uniform1d (GLint location, GLdouble x) { return bindings.uniform1d(location,x); }
+fn void  uniform1dv (GLint location, GLsizei count,  GLdouble *value) { return bindings.uniform1dv(location,count,value); }
+fn void  uniform1f (GLint location, GLfloat v0) { return bindings.uniform1f(location,v0); }
+fn void  uniform1fv (GLint location, GLsizei count,  GLfloat *value) { return bindings.uniform1fv(location,count,value); }
+fn void  uniform1i (GLint location, GLint v0) { return bindings.uniform1i(location,v0); }
+fn void  uniform1iv (GLint location, GLsizei count,  GLint *value) { return bindings.uniform1iv(location,count,value); }
+fn void  uniform1ui (GLint location, GLuint v0) { return bindings.uniform1ui(location,v0); }
+fn void  uniform1uiv (GLint location, GLsizei count,  GLuint *value) { return bindings.uniform1uiv(location,count,value); }
+fn void  uniform2d (GLint location, GLdouble x, GLdouble y) { return bindings.uniform2d(location,x,y); }
+fn void  uniform2dv (GLint location, GLsizei count,  GLdouble *value) { return bindings.uniform2dv(location,count,value); }
+fn void  uniform2f (GLint location, GLfloat v0, GLfloat v1) { return bindings.uniform2f(location,v0,v1); }
+fn void  uniform2fv (GLint location, GLsizei count,  GLfloat *value) { return bindings.uniform2fv(location,count,value); }
+fn void  uniform2i (GLint location, GLint v0, GLint v1) { return bindings.uniform2i(location,v0,v1); }
+fn void  uniform2iv (GLint location, GLsizei count,  GLint *value) { return bindings.uniform2iv(location,count,value); }
+fn void  uniform2ui (GLint location, GLuint v0, GLuint v1) { return bindings.uniform2ui(location,v0,v1); }
+fn void  uniform2uiv (GLint location, GLsizei count,  GLuint *value) { return bindings.uniform2uiv(location,count,value); }
+fn void  uniform3d (GLint location, GLdouble x, GLdouble y, GLdouble z) { return bindings.uniform3d(location,x,y,z); }
+fn void  uniform3dv (GLint location, GLsizei count,  GLdouble *value) { return bindings.uniform3dv(location,count,value); }
+fn void  uniform3f (GLint location, GLfloat v0, GLfloat v1, GLfloat v2) { return bindings.uniform3f(location,v0,v1,v2); }
+fn void  uniform3fv (GLint location, GLsizei count,  GLfloat *value) { return bindings.uniform3fv(location,count,value); }
+fn void  uniform3i (GLint location, GLint v0, GLint v1, GLint v2) { return bindings.uniform3i(location,v0,v1,v2); }
+fn void  uniform3iv (GLint location, GLsizei count,  GLint *value) { return bindings.uniform3iv(location,count,value); }
+fn void  uniform3ui (GLint location, GLuint v0, GLuint v1, GLuint v2) { return bindings.uniform3ui(location,v0,v1,v2); }
+fn void  uniform3uiv (GLint location, GLsizei count,  GLuint *value) { return bindings.uniform3uiv(location,count,value); }
+fn void  uniform4d (GLint location, GLdouble x, GLdouble y, GLdouble z, GLdouble w) { return bindings.uniform4d(location,x,y,z,w); }
+fn void  uniform4dv (GLint location, GLsizei count,  GLdouble *value) { return bindings.uniform4dv(location,count,value); }
+fn void  uniform4f (GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3) { return bindings.uniform4f(location,v0,v1,v2,v3); }
+fn void  uniform4fv (GLint location, GLsizei count,  GLfloat *value) { return bindings.uniform4fv(location,count,value); }
+fn void  uniform4i (GLint location, GLint v0, GLint v1, GLint v2, GLint v3) { return bindings.uniform4i(location,v0,v1,v2,v3); }
+fn void  uniform4iv (GLint location, GLsizei count,  GLint *value) { return bindings.uniform4iv(location,count,value); }
+fn void  uniform4ui (GLint location, GLuint v0, GLuint v1, GLuint v2, GLuint v3) { return bindings.uniform4ui(location,v0,v1,v2,v3); }
+fn void  uniform4uiv (GLint location, GLsizei count,  GLuint *value) { return bindings.uniform4uiv(location,count,value); }
+fn void  uniformBlockBinding (GLuint program, GLuint uniformBlockIndex, GLuint uniformBlockBinding) { return bindings.uniformBlockBinding(program,uniformBlockIndex,uniformBlockBinding); }
+fn void  uniformMatrix2dv (GLint location, GLsizei count, GLboolean transpose,  GLdouble *value) { return bindings.uniformMatrix2dv(location,count,transpose,value); }
+fn void  uniformMatrix2fv (GLint location, GLsizei count, GLboolean transpose,  GLfloat *value) { return bindings.uniformMatrix2fv(location,count,transpose,value); }
+fn void  uniformMatrix2x3dv (GLint location, GLsizei count, GLboolean transpose,  GLdouble *value) { return bindings.uniformMatrix2x3dv(location,count,transpose,value); }
+fn void  uniformMatrix2x3fv (GLint location, GLsizei count, GLboolean transpose,  GLfloat *value) { return bindings.uniformMatrix2x3fv(location,count,transpose,value); }
+fn void  uniformMatrix2x4dv (GLint location, GLsizei count, GLboolean transpose,  GLdouble *value) { return bindings.uniformMatrix2x4dv(location,count,transpose,value); }
+fn void  uniformMatrix2x4fv (GLint location, GLsizei count, GLboolean transpose,  GLfloat *value) { return bindings.uniformMatrix2x4fv(location,count,transpose,value); }
+fn void  uniformMatrix3dv (GLint location, GLsizei count, GLboolean transpose,  GLdouble *value) { return bindings.uniformMatrix3dv(location,count,transpose,value); }
+fn void  uniformMatrix3fv (GLint location, GLsizei count, GLboolean transpose,  GLfloat *value) { return bindings.uniformMatrix3fv(location,count,transpose,value); }
+fn void  uniformMatrix3x2dv (GLint location, GLsizei count, GLboolean transpose,  GLdouble *value) { return bindings.uniformMatrix3x2dv(location,count,transpose,value); }
+fn void  uniformMatrix3x2fv (GLint location, GLsizei count, GLboolean transpose,  GLfloat *value) { return bindings.uniformMatrix3x2fv(location,count,transpose,value); }
+fn void  uniformMatrix3x4dv (GLint location, GLsizei count, GLboolean transpose,  GLdouble *value) { return bindings.uniformMatrix3x4dv(location,count,transpose,value); }
+fn void  uniformMatrix3x4fv (GLint location, GLsizei count, GLboolean transpose,  GLfloat *value) { return bindings.uniformMatrix3x4fv(location,count,transpose,value); }
+fn void  uniformMatrix4dv (GLint location, GLsizei count, GLboolean transpose,  GLdouble *value) { return bindings.uniformMatrix4dv(location,count,transpose,value); }
+fn void  uniformMatrix4fv (GLint location, GLsizei count, GLboolean transpose,  GLfloat *value) { return bindings.uniformMatrix4fv(location,count,transpose,value); }
+fn void  uniformMatrix4x2dv (GLint location, GLsizei count, GLboolean transpose,  GLdouble *value) { return bindings.uniformMatrix4x2dv(location,count,transpose,value); }
+fn void  uniformMatrix4x2fv (GLint location, GLsizei count, GLboolean transpose,  GLfloat *value) { return bindings.uniformMatrix4x2fv(location,count,transpose,value); }
+fn void  uniformMatrix4x3dv (GLint location, GLsizei count, GLboolean transpose,  GLdouble *value) { return bindings.uniformMatrix4x3dv(location,count,transpose,value); }
+fn void  uniformMatrix4x3fv (GLint location, GLsizei count, GLboolean transpose,  GLfloat *value) { return bindings.uniformMatrix4x3fv(location,count,transpose,value); }
+fn void  uniformSubroutinesuiv (GLenum shadertype, GLsizei count,  GLuint *indices) { return bindings.uniformSubroutinesuiv(shadertype,count,indices); }
+fn GLboolean  unmapBuffer (GLenum target) { return bindings.unmapBuffer(target); }
+fn GLboolean  unmapNamedBuffer (GLuint buffer) { return bindings.unmapNamedBuffer(buffer); }
+fn void  useProgram (GLuint program) { return bindings.useProgram(program); }
+fn void  useProgramStages (GLuint pipeline, GLbitfield stages, GLuint program) { return bindings.useProgramStages(pipeline,stages,program); }
+fn void  validateProgram (GLuint program) { return bindings.validateProgram(program); }
+fn void  validateProgramPipeline (GLuint pipeline) { return bindings.validateProgramPipeline(pipeline); }
+fn void  vertex2d (GLdouble x, GLdouble y) { return bindings.vertex2d(x,y); }
+fn void  vertex2dv ( GLdouble *v) { return bindings.vertex2dv(v); }
+fn void  vertex2f (GLfloat x, GLfloat y) { return bindings.vertex2f(x,y); }
+fn void  vertex2fv ( GLfloat *v) { return bindings.vertex2fv(v); }
+fn void  vertex2i (GLint x, GLint y) { return bindings.vertex2i(x,y); }
+fn void  vertex2iv ( GLint *v) { return bindings.vertex2iv(v); }
+fn void  vertex2s (GLshort x, GLshort y) { return bindings.vertex2s(x,y); }
+fn void  vertex2sv ( GLshort *v) { return bindings.vertex2sv(v); }
+fn void  vertex3d (GLdouble x, GLdouble y, GLdouble z) { return bindings.vertex3d(x,y,z); }
+fn void  vertex3dv ( GLdouble *v) { return bindings.vertex3dv(v); }
+fn void  vertex3f (GLfloat x, GLfloat y, GLfloat z) { return bindings.vertex3f(x,y,z); }
+fn void  vertex3fv ( GLfloat *v) { return bindings.vertex3fv(v); }
+fn void  vertex3i (GLint x, GLint y, GLint z) { return bindings.vertex3i(x,y,z); }
+fn void  vertex3iv ( GLint *v) { return bindings.vertex3iv(v); }
+fn void  vertex3s (GLshort x, GLshort y, GLshort z) { return bindings.vertex3s(x,y,z); }
+fn void  vertex3sv ( GLshort *v) { return bindings.vertex3sv(v); }
+fn void  vertex4d (GLdouble x, GLdouble y, GLdouble z, GLdouble w) { return bindings.vertex4d(x,y,z,w); }
+fn void  vertex4dv ( GLdouble *v) { return bindings.vertex4dv(v); }
+fn void  vertex4f (GLfloat x, GLfloat y, GLfloat z, GLfloat w) { return bindings.vertex4f(x,y,z,w); }
+fn void  vertex4fv ( GLfloat *v) { return bindings.vertex4fv(v); }
+fn void  vertex4i (GLint x, GLint y, GLint z, GLint w) { return bindings.vertex4i(x,y,z,w); }
+fn void  vertex4iv ( GLint *v) { return bindings.vertex4iv(v); }
+fn void  vertex4s (GLshort x, GLshort y, GLshort z, GLshort w) { return bindings.vertex4s(x,y,z,w); }
+fn void  vertex4sv ( GLshort *v) { return bindings.vertex4sv(v); }
+fn void  vertexArrayAttribBinding (GLuint vaobj, GLuint attribindex, GLuint bindingindex) { return bindings.vertexArrayAttribBinding(vaobj,attribindex,bindingindex); }
+fn void  vertexArrayAttribFormat (GLuint vaobj, GLuint attribindex, GLint size, GLenum value_type, GLboolean normalized, GLuint relativeoffset) { return bindings.vertexArrayAttribFormat(vaobj,attribindex,size,value_type,normalized,relativeoffset); }
+fn void  vertexArrayAttribIFormat (GLuint vaobj, GLuint attribindex, GLint size, GLenum value_type, GLuint relativeoffset) { return bindings.vertexArrayAttribIFormat(vaobj,attribindex,size,value_type,relativeoffset); }
+fn void  vertexArrayAttribLFormat (GLuint vaobj, GLuint attribindex, GLint size, GLenum value_type, GLuint relativeoffset) { return bindings.vertexArrayAttribLFormat(vaobj,attribindex,size,value_type,relativeoffset); }
+fn void  vertexArrayBindingDivisor (GLuint vaobj, GLuint bindingindex, GLuint divisor) { return bindings.vertexArrayBindingDivisor(vaobj,bindingindex,divisor); }
+fn void  vertexArrayElementBuffer (GLuint vaobj, GLuint buffer) { return bindings.vertexArrayElementBuffer(vaobj,buffer); }
+fn void  vertexArrayVertexBuffer (GLuint vaobj, GLuint bindingindex, GLuint buffer, GLintptr offset, GLsizei stride) { return bindings.vertexArrayVertexBuffer(vaobj,bindingindex,buffer,offset,stride); }
+fn void  vertexArrayVertexBuffers (GLuint vaobj, GLuint first, GLsizei count,  GLuint *buffers,  GLintptr *offsets,  GLsizei *strides) { return bindings.vertexArrayVertexBuffers(vaobj,first,count,buffers,offsets,strides); }
+fn void  vertexAttrib1d (GLuint index, GLdouble x) { return bindings.vertexAttrib1d(index,x); }
+fn void  vertexAttrib1dv (GLuint index,  GLdouble *v) { return bindings.vertexAttrib1dv(index,v); }
+fn void  vertexAttrib1f (GLuint index, GLfloat x) { return bindings.vertexAttrib1f(index,x); }
+fn void  vertexAttrib1fv (GLuint index,  GLfloat *v) { return bindings.vertexAttrib1fv(index,v); }
+fn void  vertexAttrib1s (GLuint index, GLshort x) { return bindings.vertexAttrib1s(index,x); }
+fn void  vertexAttrib1sv (GLuint index,  GLshort *v) { return bindings.vertexAttrib1sv(index,v); }
+fn void  vertexAttrib2d (GLuint index, GLdouble x, GLdouble y) { return bindings.vertexAttrib2d(index,x,y); }
+fn void  vertexAttrib2dv (GLuint index,  GLdouble *v) { return bindings.vertexAttrib2dv(index,v); }
+fn void  vertexAttrib2f (GLuint index, GLfloat x, GLfloat y) { return bindings.vertexAttrib2f(index,x,y); }
+fn void  vertexAttrib2fv (GLuint index,  GLfloat *v) { return bindings.vertexAttrib2fv(index,v); }
+fn void  vertexAttrib2s (GLuint index, GLshort x, GLshort y) { return bindings.vertexAttrib2s(index,x,y); }
+fn void  vertexAttrib2sv (GLuint index,  GLshort *v) { return bindings.vertexAttrib2sv(index,v); }
+fn void  vertexAttrib3d (GLuint index, GLdouble x, GLdouble y, GLdouble z) { return bindings.vertexAttrib3d(index,x,y,z); }
+fn void  vertexAttrib3dv (GLuint index,  GLdouble *v) { return bindings.vertexAttrib3dv(index,v); }
+fn void  vertexAttrib3f (GLuint index, GLfloat x, GLfloat y, GLfloat z) { return bindings.vertexAttrib3f(index,x,y,z); }
+fn void  vertexAttrib3fv (GLuint index,  GLfloat *v) { return bindings.vertexAttrib3fv(index,v); }
+fn void  vertexAttrib3s (GLuint index, GLshort x, GLshort y, GLshort z) { return bindings.vertexAttrib3s(index,x,y,z); }
+fn void  vertexAttrib3sv (GLuint index,  GLshort *v) { return bindings.vertexAttrib3sv(index,v); }
+fn void  vertexAttrib4Nbv (GLuint index,  GLbyte *v) { return bindings.vertexAttrib4Nbv(index,v); }
+fn void  vertexAttrib4Niv (GLuint index,  GLint *v) { return bindings.vertexAttrib4Niv(index,v); }
+fn void  vertexAttrib4Nsv (GLuint index,  GLshort *v) { return bindings.vertexAttrib4Nsv(index,v); }
+fn void  vertexAttrib4Nub (GLuint index, GLubyte x, GLubyte y, GLubyte z, GLubyte w) { return bindings.vertexAttrib4Nub(index,x,y,z,w); }
+fn void  vertexAttrib4Nubv (GLuint index,  GLubyte *v) { return bindings.vertexAttrib4Nubv(index,v); }
+fn void  vertexAttrib4Nuiv (GLuint index,  GLuint *v) { return bindings.vertexAttrib4Nuiv(index,v); }
+fn void  vertexAttrib4Nusv (GLuint index,  GLushort *v) { return bindings.vertexAttrib4Nusv(index,v); }
+fn void  vertexAttrib4bv (GLuint index,  GLbyte *v) { return bindings.vertexAttrib4bv(index,v); }
+fn void  vertexAttrib4d (GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w) { return bindings.vertexAttrib4d(index,x,y,z,w); }
+fn void  vertexAttrib4dv (GLuint index,  GLdouble *v) { return bindings.vertexAttrib4dv(index,v); }
+fn void  vertexAttrib4f (GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w) { return bindings.vertexAttrib4f(index,x,y,z,w); }
+fn void  vertexAttrib4fv (GLuint index,  GLfloat *v) { return bindings.vertexAttrib4fv(index,v); }
+fn void  vertexAttrib4iv (GLuint index,  GLint *v) { return bindings.vertexAttrib4iv(index,v); }
+fn void  vertexAttrib4s (GLuint index, GLshort x, GLshort y, GLshort z, GLshort w) { return bindings.vertexAttrib4s(index,x,y,z,w); }
+fn void  vertexAttrib4sv (GLuint index,  GLshort *v) { return bindings.vertexAttrib4sv(index,v); }
+fn void  vertexAttrib4ubv (GLuint index,  GLubyte *v) { return bindings.vertexAttrib4ubv(index,v); }
+fn void  vertexAttrib4uiv (GLuint index,  GLuint *v) { return bindings.vertexAttrib4uiv(index,v); }
+fn void  vertexAttrib4usv (GLuint index,  GLushort *v) { return bindings.vertexAttrib4usv(index,v); }
+fn void  vertexAttribBinding (GLuint attribindex, GLuint bindingindex) { return bindings.vertexAttribBinding(attribindex,bindingindex); }
+fn void  vertexAttribDivisor (GLuint index, GLuint divisor) { return bindings.vertexAttribDivisor(index,divisor); }
+fn void  vertexAttribFormat (GLuint attribindex, GLint size, GLenum value_type, GLboolean normalized, GLuint relativeoffset) { return bindings.vertexAttribFormat(attribindex,size,value_type,normalized,relativeoffset); }
+fn void  vertexAttribI1i (GLuint index, GLint x) { return bindings.vertexAttribI1i(index,x); }
+fn void  vertexAttribI1iv (GLuint index,  GLint *v) { return bindings.vertexAttribI1iv(index,v); }
+fn void  vertexAttribI1ui (GLuint index, GLuint x) { return bindings.vertexAttribI1ui(index,x); }
+fn void  vertexAttribI1uiv (GLuint index,  GLuint *v) { return bindings.vertexAttribI1uiv(index,v); }
+fn void  vertexAttribI2i (GLuint index, GLint x, GLint y) { return bindings.vertexAttribI2i(index,x,y); }
+fn void  vertexAttribI2iv (GLuint index,  GLint *v) { return bindings.vertexAttribI2iv(index,v); }
+fn void  vertexAttribI2ui (GLuint index, GLuint x, GLuint y) { return bindings.vertexAttribI2ui(index,x,y); }
+fn void  vertexAttribI2uiv (GLuint index,  GLuint *v) { return bindings.vertexAttribI2uiv(index,v); }
+fn void  vertexAttribI3i (GLuint index, GLint x, GLint y, GLint z) { return bindings.vertexAttribI3i(index,x,y,z); }
+fn void  vertexAttribI3iv (GLuint index,  GLint *v) { return bindings.vertexAttribI3iv(index,v); }
+fn void  vertexAttribI3ui (GLuint index, GLuint x, GLuint y, GLuint z) { return bindings.vertexAttribI3ui(index,x,y,z); }
+fn void  vertexAttribI3uiv (GLuint index,  GLuint *v) { return bindings.vertexAttribI3uiv(index,v); }
+fn void  vertexAttribI4bv (GLuint index,  GLbyte *v) { return bindings.vertexAttribI4bv(index,v); }
+fn void  vertexAttribI4i (GLuint index, GLint x, GLint y, GLint z, GLint w) { return bindings.vertexAttribI4i(index,x,y,z,w); }
+fn void  vertexAttribI4iv (GLuint index,  GLint *v) { return bindings.vertexAttribI4iv(index,v); }
+fn void  vertexAttribI4sv (GLuint index,  GLshort *v) { return bindings.vertexAttribI4sv(index,v); }
+fn void  vertexAttribI4ubv (GLuint index,  GLubyte *v) { return bindings.vertexAttribI4ubv(index,v); }
+fn void  vertexAttribI4ui (GLuint index, GLuint x, GLuint y, GLuint z, GLuint w) { return bindings.vertexAttribI4ui(index,x,y,z,w); }
+fn void  vertexAttribI4uiv (GLuint index,  GLuint *v) { return bindings.vertexAttribI4uiv(index,v); }
+fn void  vertexAttribI4usv (GLuint index,  GLushort *v) { return bindings.vertexAttribI4usv(index,v); }
+fn void  vertexAttribIFormat (GLuint attribindex, GLint size, GLenum value_type, GLuint relativeoffset) { return bindings.vertexAttribIFormat(attribindex,size,value_type,relativeoffset); }
+fn void  vertexAttribIPointer (GLuint index, GLint size, GLenum value_type, GLsizei stride,  void *pointer) { return bindings.vertexAttribIPointer(index,size,value_type,stride,pointer); }
+fn void  vertexAttribL1d (GLuint index, GLdouble x) { return bindings.vertexAttribL1d(index,x); }
+fn void  vertexAttribL1dv (GLuint index,  GLdouble *v) { return bindings.vertexAttribL1dv(index,v); }
+fn void  vertexAttribL2d (GLuint index, GLdouble x, GLdouble y) { return bindings.vertexAttribL2d(index,x,y); }
+fn void  vertexAttribL2dv (GLuint index,  GLdouble *v) { return bindings.vertexAttribL2dv(index,v); }
+fn void  vertexAttribL3d (GLuint index, GLdouble x, GLdouble y, GLdouble z) { return bindings.vertexAttribL3d(index,x,y,z); }
+fn void  vertexAttribL3dv (GLuint index,  GLdouble *v) { return bindings.vertexAttribL3dv(index,v); }
+fn void  vertexAttribL4d (GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w) { return bindings.vertexAttribL4d(index,x,y,z,w); }
+fn void  vertexAttribL4dv (GLuint index,  GLdouble *v) { return bindings.vertexAttribL4dv(index,v); }
+fn void  vertexAttribLFormat (GLuint attribindex, GLint size, GLenum value_type, GLuint relativeoffset) { return bindings.vertexAttribLFormat(attribindex,size,value_type,relativeoffset); }
+fn void  vertexAttribLPointer (GLuint index, GLint size, GLenum value_type, GLsizei stride,  void *pointer) { return bindings.vertexAttribLPointer(index,size,value_type,stride,pointer); }
+fn void  vertexAttribP1ui (GLuint index, GLenum value_type, GLboolean normalized, GLuint value) { return bindings.vertexAttribP1ui(index,value_type,normalized,value); }
+fn void  vertexAttribP1uiv (GLuint index, GLenum value_type, GLboolean normalized,  GLuint *value) { return bindings.vertexAttribP1uiv(index,value_type,normalized,value); }
+fn void  vertexAttribP2ui (GLuint index, GLenum value_type, GLboolean normalized, GLuint value) { return bindings.vertexAttribP2ui(index,value_type,normalized,value); }
+fn void  vertexAttribP2uiv (GLuint index, GLenum value_type, GLboolean normalized,  GLuint *value) { return bindings.vertexAttribP2uiv(index,value_type,normalized,value); }
+fn void  vertexAttribP3ui (GLuint index, GLenum value_type, GLboolean normalized, GLuint value) { return bindings.vertexAttribP3ui(index,value_type,normalized,value); }
+fn void  vertexAttribP3uiv (GLuint index, GLenum value_type, GLboolean normalized,  GLuint *value) { return bindings.vertexAttribP3uiv(index,value_type,normalized,value); }
+fn void  vertexAttribP4ui (GLuint index, GLenum value_type, GLboolean normalized, GLuint value) { return bindings.vertexAttribP4ui(index,value_type,normalized,value); }
+fn void  vertexAttribP4uiv (GLuint index, GLenum value_type, GLboolean normalized,  GLuint *value) { return bindings.vertexAttribP4uiv(index,value_type,normalized,value); }
+fn void  vertexAttribPointer (GLuint index, GLint size, GLenum value_type, GLboolean normalized, GLsizei stride,  void *pointer) { return bindings.vertexAttribPointer(index,size,value_type,normalized,stride,pointer); }
+fn void  vertexBindingDivisor (GLuint bindingindex, GLuint divisor) { return bindings.vertexBindingDivisor(bindingindex,divisor); }
+fn void  vertexP2ui (GLenum value_type, GLuint value) { return bindings.vertexP2ui(value_type,value); }
+fn void  vertexP2uiv (GLenum value_type,  GLuint *value) { return bindings.vertexP2uiv(value_type,value); }
+fn void  vertexP3ui (GLenum value_type, GLuint value) { return bindings.vertexP3ui(value_type,value); }
+fn void  vertexP3uiv (GLenum value_type,  GLuint *value) { return bindings.vertexP3uiv(value_type,value); }
+fn void  vertexP4ui (GLenum value_type, GLuint value) { return bindings.vertexP4ui(value_type,value); }
+fn void  vertexP4uiv (GLenum value_type,  GLuint *value) { return bindings.vertexP4uiv(value_type,value); }
+fn void  vertexPointer (GLint size, GLenum value_type, GLsizei stride,  void *pointer) { return bindings.vertexPointer(size,value_type,stride,pointer); }
+fn void  viewport (GLint x, GLint y, GLsizei width, GLsizei height) { return bindings.viewport(x,y,width,height); }
+fn void  viewportArrayv (GLuint first, GLsizei count,  GLfloat *v) { return bindings.viewportArrayv(first,count,v); }
+fn void  viewportIndexedf (GLuint index, GLfloat x, GLfloat y, GLfloat w, GLfloat h) { return bindings.viewportIndexedf(index,x,y,w,h); }
+fn void  viewportIndexedfv (GLuint index,  GLfloat *v) { return bindings.viewportIndexedfv(index,v); }
+fn void  waitSync (GLsync sync, GLbitfield flags, GLuint64 timeout) { return bindings.waitSync(sync,flags,timeout); }
+fn void  windowPos2d (GLdouble x, GLdouble y) { return bindings.windowPos2d(x,y); }
+fn void  windowPos2dv ( GLdouble *v) { return bindings.windowPos2dv(v); }
+fn void  windowPos2f (GLfloat x, GLfloat y) { return bindings.windowPos2f(x,y); }
+fn void  windowPos2fv ( GLfloat *v) { return bindings.windowPos2fv(v); }
+fn void  windowPos2i (GLint x, GLint y) { return bindings.windowPos2i(x,y); }
+fn void  windowPos2iv ( GLint *v) { return bindings.windowPos2iv(v); }
+fn void  windowPos2s (GLshort x, GLshort y) { return bindings.windowPos2s(x,y); }
+fn void  windowPos2sv ( GLshort *v) { return bindings.windowPos2sv(v); }
+fn void  windowPos3d (GLdouble x, GLdouble y, GLdouble z) { return bindings.windowPos3d(x,y,z); }
+fn void  windowPos3dv ( GLdouble *v) { return bindings.windowPos3dv(v); }
+fn void  windowPos3f (GLfloat x, GLfloat y, GLfloat z) { return bindings.windowPos3f(x,y,z); }
+fn void  windowPos3fv ( GLfloat *v) { return bindings.windowPos3fv(v); }
+fn void  windowPos3i (GLint x, GLint y, GLint z) { return bindings.windowPos3i(x,y,z); }
+fn void  windowPos3iv ( GLint *v) { return bindings.windowPos3iv(v); }
+fn void  windowPos3s (GLshort x, GLshort y, GLshort z) { return bindings.windowPos3s(x,y,z); }
+fn void  windowPos3sv ( GLshort *v) { return bindings.windowPos3sv(v); }
