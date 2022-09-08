@@ -27,8 +27,8 @@ fn int main()
 
   const int WIDTH = 1280;
   const int HEIGHT = 720;
-  int* renderer;
-  int* version;
+  char* renderer;
+  char* version;
 
   uint vao;
   uint vbo;
@@ -39,6 +39,8 @@ fn int main()
   glfw::windowHint(glfw::CONTEXT_VERSION_MAJOR, 4);
   glfw::windowHint(glfw::CONTEXT_VERSION_MINOR, 1);
   glfw::windowHint(glfw::OPENGL_PROFILE, glfw::OPENGL_CORE_PROFILE);
+  glfw::windowHint(glfw::OPENGL_FORWARD_COMPAT, 1);
+
 
   glfw::WindowRef window = glfw::createWindow(WIDTH, HEIGHT, "GLFW OpenGL", null, null);
 

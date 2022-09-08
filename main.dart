@@ -13,7 +13,7 @@ class Param {
   Param(this.type, this.name);
 
   String toString() {
-    return C3Type(type) + " " + renameParameter(name);
+    return "${type}${renameParameter(name)}";
   }
 }
 
@@ -25,9 +25,8 @@ class Command {
 
   String toString() {
     var fnName = name.substring(2);
-    return "fn " +
-        C3Type(returnType) +
-        " " +
+    return "fn" +
+        returnType +
         fnName[0].toLowerCase() +
         fnName.substring(1) +
         "(" +
@@ -56,7 +55,7 @@ class Command {
     return "define " +
         defineName() +
         " = fn " +
-        C3Type(returnType) +
+        returnType +
         " (" +
         params.map((e) => e.toString()).join(", ") +
         " );";
@@ -76,115 +75,14 @@ String renameParameter(String value) {
   switch (value) {
     case "func":
       return 'func_param';
+    case "type":
+      return 'value_type';  
     default:
       return value;
   }
 }
 
-// enum C_types {
-//   GLsizei,
-//   GLuint,
-//   GLfloat,
-//   GLclampf,
-//   GLenum,
-//   GLuint64EXT,
-//   GLubyte,
-//   GLdouble,
-//   GLchar,
-//   GLshort,
-//   GLboolean,
-//   GLint,
-//   GLuint64,
-//   GLfixed,
-//   GLsizeiptr,
-//   GLbyte,
-// }
 
-// extension C3Type on C_types {
-//   String get name {
-//     switch (this) {
-//       case C_types.GLsizei:
-//         return 'isize';
-//       case C_types.GLuint:
-//         return 'uint';
-//       case C_types.GLfloat:
-//         return 'float';
-//       case C_types.GLclampf:
-//         return 'float';
-//       case C_types.GLenum:
-//         return 'int';
-//       case C_types.GLuint64EXT:
-//         return 'int';
-//       case C_types.GLubyte:
-//         return 'uint';
-//       case C_types.GLdouble:
-//         return 'double';
-//       case C_types.GLchar:
-//         return 'char';
-//       case C_types.GLshort:
-//         return 'uint';
-//       case C_types.GLboolean:
-//         return 'bool';
-//       default:
-//         return null;
-//     }
-//   }
-// }
-
-// Change GL_types to regular C3 types
-String C3Type(String value) {
-  switch (value) {
-    case "GLsizei":
-      return 'isize';
-    case "GLuint":
-      return 'uint';
-    case "GLfloat":
-      return 'float';
-    case "GLclampf":
-      return 'float';
-    case "GLenum":
-      return 'int';
-    case "GLuint64EXT":
-      return 'int';
-    case "GLubyte":
-      return 'uint';
-    case "GLdouble":
-      return 'double';
-    case "GLchar":
-      return 'char';
-    case "GLshort":
-      return 'short';
-    case "GLboolean":
-      return 'bool';
-    case "GLint":
-      return "int";
-    case "GLuint64":
-      return "ulong";
-    case "GLint64":
-      return "int";
-    case "GLfixed":
-      return "int";
-    case "GLsizeiptr":
-      return "int";
-    case "GLbyte":
-      return "ushort";
-    case "GLushort":
-      return "ushort";
-    case "const":
-      return "int*";
-    case "GLDEBUGPROC":
-      return "void*";
-    case "GLsync":
-      return "void*";
-    case "GLintptr":
-      return "iptr**";
-    case "GLbitfield":
-      return "int";
-    default:
-      // print(value);
-      return value;
-  }
-}
 
 List<EnumValue> parseEnums(XmlDocument document) {
   return document
@@ -205,33 +103,23 @@ List<Command> parseCommands(XmlDocument document) {
       .map((XmlElement node) {
         var proto = node.getElement("proto");
         if (proto != null) {
-          var fnName = proto.getElement("name").text;
-          var returnType = proto.text.split(" ")[0];
+          var name = proto.getElement("name").text;
+       
+          var type = proto.text.replaceAll("const", "");
           var paramsRaw = node.findAllElements("param");
-
+        
           List<Param> params = paramsRaw.map((XmlElement value) {
-            var valueText = value.text;
-            var type = value.getElement("ptype");
-            var splitValueText = valueText.split(" ");
-            var paramName = splitValueText[splitValueText.length - 1];
+            var name = value.getElement("name").text;
+            var type = value.text.replaceAll("const", "");
 
-            if (valueText == "const void *data") {
-              return Param("double[]", paramName.replaceAll("*", ""));
-            }
-
-            // Replace *const* with just **
-            if (paramName.contains("*const*")) {
-              paramName = paramName.replaceAll("*const*", "**");
-            }
-
-            if (type == null)
-              return Param(valueText.split(" ")[0], paramName);
-            else {
-              return Param(type.text, paramName);
-            }
+            type = type.replaceAll("GLDEBUGPROC", "GLdebugproc");
+            type = type.replaceAll("GLDEBUGPROCARB", "GLdebugprocarb");
+            type = type.replaceAll("GLDEBUGPROCKHR", "GLdebugprockhr");
+          
+            return Param(type.substring(0, type.length - name.length), name);
           }).toList();
 
-          return Command(returnType, fnName, params);
+          return Command(type.substring(0, type.length - name.length), name, params);
         }
       })
       .where((element) => element != null)
@@ -241,6 +129,45 @@ List<Command> parseCommands(XmlDocument document) {
 String Comment(String value) {
   return "\n\n/** \n* $value \n*/ \n";
 }
+
+
+const C3_types = """
+define GLenum = CUInt;
+define GLboolean = bool;
+define GLbitfield = CUInt;
+define GLbyte = ichar;
+define GLubyte = char;
+define GLshort = short;
+define GLushort = ushort;
+define GLint = CInt;
+define GLuint = CUInt;
+define GLclampx = int;
+define GLsizei = CInt;
+define GLfloat = float;
+define GLclampf = float;
+define GLdouble = double;
+define GLclampd = double;
+define GLeglClientBufferEXT = void;
+define GLeglImageOES = void;
+define GLchar = char;
+define GLcharARB = char;
+
+define GLhalf = ushort;
+define GLhalfARB = ushort;
+define GLfixed = int;
+define GLintptr = usize;
+define GLintptrARB = usize;
+define GLsizeiptr = isize;
+define GLsizeiptrARB = isize;
+define GLint64 = long;
+define GLint64EXT = long;
+define GLuint64 = ulong;
+define GLuint64EXT = ulong;
+define GLsync = void*;
+define GLdebugproc = void*;
+define GLdebugprocarb = void*;
+define GLdebugprockhr = void*;
+""";
 
 void main() {
   const versions = [
@@ -319,6 +246,8 @@ void main() {
 
   // Write the whole C3 output file
   output.writeAsStringSync("module gl;" +
+      "\n \n" +
+      C3_types +
       "\n \n" +
       constants +
       "\n \n" +
