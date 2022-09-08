@@ -12,6 +12,3 @@ To compile run on command line:
 
 Then run `./example`
 
----
-
-Currently only works on Linux probably
