@@ -64,15 +64,15 @@ fn int main()
 
   gl::enable( gl::GL_DEPTH_TEST );
   gl::depthFunc( gl::GL_LESS );
+
+  
   gl::genBuffers( 1, &vbo );
   gl::bindBuffer( gl::GL_ARRAY_BUFFER, vbo );
   gl::bufferData( gl::GL_ARRAY_BUFFER, 9 * float.sizeof, points, gl::GL_STATIC_DRAW );
 
   gl::genVertexArrays( 1, &vao );
   gl::bindVertexArray( vao );
-
   gl::enableVertexAttribArray( 0 );
-  gl::bindBuffer( gl::GL_ARRAY_BUFFER, vbo );
   gl::vertexAttribPointer( 0, 3, gl::GL_FLOAT, false, 0, null );
 
   vert_shader = gl::createShader( gl::GL_VERTEX_SHADER );
@@ -88,11 +88,9 @@ fn int main()
   gl::attachShader( shader_programme, vert_shader );
   gl::linkProgram( shader_programme );
 
-
   while(!glfw::windowShouldClose(window)) {
     gl::clear( gl::GL_COLOR_BUFFER_BIT | gl::GL_DEPTH_BUFFER_BIT );
     gl::useProgram( shader_programme );
-    gl::bindVertexArray( vao );
     gl::drawArrays( gl::GL_TRIANGLES, 0, 3 );
 
     glfw::pollEvents();
