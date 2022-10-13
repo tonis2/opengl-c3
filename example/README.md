@@ -15,4 +15,5 @@ Triangle example
 Then run `./triangle`
 
 
-
+Cube example
+`c3c compile ./cube.c3 ./glfw.c3 ./utils.c3 ../build/gl.c3 -l glfw -o ./cube`
