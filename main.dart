@@ -6,7 +6,7 @@ class EnumValue {
   final String name;
   const EnumValue(this.value, this.name);
 
-   String toString() {
+  String toString() {
     return "const ${name.toUpperCase()} = $value;";
   }
 }
@@ -29,17 +29,7 @@ class Command {
 
   String toString() {
     var fnName = name.substring(2);
-    return "fn" +
-        returnType +
-        fnName[0].toLowerCase() +
-        fnName.substring(1) +
-        "(" +
-        params.map((e) => e.toString()).join(", ") +
-        ") @extname(" +
-        "\"" +
-        name +
-        "\"" +
-        ");";
+    return "fn ${returnType} ${fnName[0].toLowerCase()} ${fnName.substring(1)} (${params.map((e) => e.toString()).join(", ")}) @extname(${name});";
   }
 
   String shortName(bool uppercase) {
@@ -56,13 +46,7 @@ class Command {
   }
 
   String toDefinition() {
-    return "define " +
-        defineName() +
-        " = fn " +
-        returnType +
-        " (" +
-        params.map((e) => e.toString()).join(", ") +
-        " );";
+    return "define " + defineName() + " = fn " + returnType + " (" + params.map((e) => e.toString()).join(", ") + " );";
   }
 
   String toBinding() {
@@ -84,13 +68,11 @@ String renameParameter(String value) {
     case "func":
       return 'func_param';
     case "type":
-      return 'value_type';  
+      return 'value_type';
     default:
       return value;
   }
 }
-
-
 
 List<EnumValue> parseEnums(XmlDocument document) {
   return document
@@ -114,10 +96,10 @@ List<Command> parseCommands(XmlDocument document) {
         var proto = node.getElement("proto");
         if (proto != null) {
           var name = proto.getElement("name").text;
-       
+
           var type = proto.text.replaceAll("const", "");
           var paramsRaw = node.findAllElements("param");
-        
+
           List<Param> params = paramsRaw.map((XmlElement value) {
             var name = value.getElement("name").text;
             var type = value.text.replaceAll("const", "");
@@ -125,7 +107,7 @@ List<Command> parseCommands(XmlDocument document) {
             type = type.replaceAll("GLDEBUGPROC", "GLdebugproc");
             type = type.replaceAll("GLDEBUGPROCARB", "GLdebugprocarb");
             type = type.replaceAll("GLDEBUGPROCKHR", "GLdebugprockhr");
-          
+
             return Param(type.substring(0, type.length - name.length), name);
           }).toList();
 
@@ -139,7 +121,6 @@ List<Command> parseCommands(XmlDocument document) {
 String Comment(String value) {
   return "\n\n/** \n* $value \n*/ \n";
 }
-
 
 const C3_types = """
 define GLenum = CUInt;
@@ -162,21 +143,21 @@ define GLeglImageOES = void;
 define GLchar = char;
 define GLcharARB = char;
 
-define GLhalf = ushort;
-define GLhalfARB = ushort;
-define GLfixed = int;
-define GLintptr = usize;
-define GLintptrARB = usize;
-define GLsizeiptr = isize;
-define GLsizeiptrARB = isize;
-define GLint64 = long;
-define GLint64EXT = long;
-define GLuint64 = ulong;
-define GLuint64EXT = ulong;
-define GLsync = void*;
-define GLdebugproc = void*;
-define GLdebugprocarb = void*;
-define GLdebugprockhr = void*;
+typedef GLhalf = ushort;
+typedef GLhalfARB = ushort;
+typedef GLfixed = int;
+typedef GLintptr = usz;
+typedef GLintptrARB = usz;
+typedef GLsizeiptr = isz;
+typedef GLsizeiptrARB = isz;
+typedef GLint64 = long;
+typedef GLint64EXT = long;
+typedef GLuint64 = ulong;
+typedef GLuint64EXT = ulong;
+typedef GLsync = void*;
+typedef GLdebugproc = void*;
+typedef GLdebugprocarb = void*;
+typedef GLdebugprockhr = void*;
 """;
 
 void main() {
@@ -244,8 +225,7 @@ void main() {
       "\ndefine ProcFN = fn void* (char*);\n\n";
 
   // Create Constants list
-  String constants = Comment("Constants") +
-      enums.map((value) => value.toString()).join("\n");
+  String constants = Comment("Constants") + enums.map((value) => value.toString()).join("\n");
 
   // Init function
 
@@ -265,6 +245,7 @@ void main() {
       "\n \n" +
       bindingsPlaceholder +
       "\n \n" +
-      initFunction + "\n \n" + callFunctions
-      );
+      initFunction +
+      "\n \n" +
+      callFunctions);
 }
