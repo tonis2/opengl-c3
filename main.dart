@@ -41,24 +41,30 @@ class Command {
     }
   }
 
-  String defineName() {
+  String typedefName() {
     return "GL_" + shortName(true);
   }
 
   String toDefinition() {
-    return "define " + defineName() + " = fn " + returnType + " (" + params.map((e) => e.toString()).join(", ") + " );";
+    return "typedef " +
+        typedefName() +
+        " = fn " +
+        returnType +
+        " (" +
+        params.map((e) => e.toString()).join(", ") +
+        " );";
   }
 
   String toBinding() {
-    return defineName() + " " + shortName(false) + ";";
+    return typedefName() + " " + shortName(false) + ";";
   }
 
   String toCallFn() {
-    return "fn ${returnType} ${shortName(false)} (${params.map((e) => e.toString()).join(", ")}) { return bindings.${shortName(false)}(${params.map((e) => renameParameter(e.name)).join(",")}); }";
+    return "fn ${returnType} ${shortName(false)} (${params.map((e) => e.toString()).join(", ")}) => bindings.${shortName(false)}(${params.map((e) => renameParameter(e.name)).join(",")});";
   }
 
   String getProc() {
-    return "bindings.${shortName(false)} = (${defineName()})procAddress(\"${name}\");";
+    return "bindings.${shortName(false)} = (${typedefName()})procAddress(\"${name}\");";
   }
 }
 
@@ -123,25 +129,25 @@ String Comment(String value) {
 }
 
 const C3_types = """
-define GLenum = CUInt;
-define GLboolean = bool;
-define GLbitfield = CUInt;
-define GLbyte = ichar;
-define GLubyte = char;
-define GLshort = short;
-define GLushort = ushort;
-define GLint = CInt;
-define GLuint = CUInt;
-define GLclampx = int;
-define GLsizei = CInt;
-define GLfloat = float;
-define GLclampf = float;
-define GLdouble = double;
-define GLclampd = double;
-define GLeglClientBufferEXT = void;
-define GLeglImageOES = void;
-define GLchar = char;
-define GLcharARB = char;
+typedef GLenum = CUInt;
+typedef GLboolean = bool;
+typedef GLbitfield = CUInt;
+typedef GLbyte = ichar;
+typedef GLubyte = char;
+typedef GLshort = short;
+typedef GLushort = ushort;
+typedef GLint = CInt;
+typedef GLuint = CUInt;
+typedef GLclampx = int;
+typedef GLsizei = CInt;
+typedef GLfloat = float;
+typedef GLclampf = float;
+typedef GLdouble = double;
+typedef GLclampd = double;
+typedef GLeglClientBufferEXT = void;
+typedef GLeglImageOES = void;
+typedef GLchar = char;
+typedef GLcharARB = char;
 
 typedef GLhalf = ushort;
 typedef GLhalfARB = ushort;
@@ -222,7 +228,7 @@ void main() {
   String fnDefinitions = Comment("Function definitions") +
       commands.map((value) => value.toDefinition()).join("\n") +
       Comment("GLFW proc definitions") +
-      "\ndefine ProcFN = fn void* (char*);\n\n";
+      "\ntypedef ProcFN = fn void* (char*);\n\n";
 
   // Create Constants list
   String constants = Comment("Constants") + enums.map((value) => value.toString()).join("\n");

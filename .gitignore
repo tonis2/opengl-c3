@@ -23,6 +23,7 @@ doc/api/
 
 
 # Prerequisites
+example/triangle
 *.d
 build/*
 # Object files
