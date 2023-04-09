@@ -1,0 +1,1 @@
+dart run main.dart && zip ./opengl.c3l ./build/gl.c3 ./manifest.json
