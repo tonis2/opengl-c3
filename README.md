@@ -10,3 +10,16 @@ Make sure [dart](https://dart.dev/) is installed
 Install dart packages `dart pub get`
 
 Build C3 binding `dart run main.dart`
+
+
+
+### Using 
+
+Download `opengl.c3l` file and then copy it to your C3 project dependencies folder.
+
+C3 project.json example
+
+```
+"dependencies": ["opengl"],
+"dependency-search-paths": [ "dependencies" ],
+```
