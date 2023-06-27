@@ -41,22 +41,16 @@ class Command {
     }
   }
 
-  String typedefName() {
-    return "GL_" + shortName(true);
+  String defName() {
+    return "GL_${shortName(true)}";
   }
 
   String toDefinition() {
-    return "typedef " +
-        typedefName() +
-        " = fn " +
-        returnType +
-        " (" +
-        params.map((e) => e.toString()).join(", ") +
-        " );";
+    return "def ${defName()} = fn $returnType(${params.map((e) => e.toString()).join(", ")});";
   }
 
   String toBinding() {
-    return typedefName() + " " + shortName(false) + ";";
+    return "${defName()} ${shortName(false)};";
   }
 
   String toCallFn() {
@@ -64,7 +58,7 @@ class Command {
   }
 
   String getProc() {
-    return "bindings.${shortName(false)} = (${typedefName()})procAddress(\"${name}\");";
+    return "bindings.${shortName(false)} = (${defName()})procAddress(\"${name}\");";
   }
 }
 
@@ -80,35 +74,34 @@ String renameParameter(String value) {
   }
 }
 
-List<EnumValue> parseEnums(XmlDocument document) {
+List<EnumValue?> parseEnums(XmlDocument document) {
   return document
       .findAllElements('enum')
       .map((XmlElement node) {
         // var comment = node.getAttribute("comment");
-        String value = node.getAttribute("value");
-        String name = node.getAttribute("name");
+        String? value = node.getAttribute("value");
+        String? name = node.getAttribute("name");
         if (value == null) return null;
 
-        return EnumValue(node.getAttribute("value"), name);
+        return EnumValue(node.getAttribute("value") ?? "", name ?? "");
       })
       .where((element) => element != null)
       .toList();
 }
 
-List<Command> parseCommands(XmlDocument document) {
+List<Command?> parseCommands(XmlDocument document) {
   return document
       .findAllElements('command')
       .map((XmlElement node) {
         var proto = node.getElement("proto");
         if (proto != null) {
-          var name = proto.getElement("name").text;
-
-          var type = proto.text.replaceAll("const", "");
-          var paramsRaw = node.findAllElements("param");
+          String? name = proto.getElement("name")!.innerText;
+          String type = proto.innerText.replaceAll("const", "");
+          List<XmlElement> paramsRaw = node.findAllElements("param").toList();
 
           List<Param> params = paramsRaw.map((XmlElement value) {
-            var name = value.getElement("name").text;
-            var type = value.text.replaceAll("const", "");
+            var name = value.getElement("name")!.innerText;
+            var type = value.innerText.replaceAll("const", "");
 
             type = type.replaceAll("GLDEBUGPROC", "GLdebugproc");
             type = type.replaceAll("GLDEBUGPROCARB", "GLdebugprocarb");
@@ -117,7 +110,7 @@ List<Command> parseCommands(XmlDocument document) {
             return Param(type.substring(0, type.length - name.length), name);
           }).toList();
 
-          return Command(type.substring(0, type.length - name.length), name, params);
+          return Command(type.substring(0, (type.length - name.length).toInt()), name, params);
         }
       })
       .where((element) => element != null)
@@ -129,41 +122,41 @@ String Comment(String value) {
 }
 
 const C3_types = """
-typedef GLenum = CUInt;
-typedef GLboolean = bool;
-typedef GLbitfield = CUInt;
-typedef GLbyte = ichar;
-typedef GLubyte = char;
-typedef GLshort = short;
-typedef GLushort = ushort;
-typedef GLint = CInt;
-typedef GLuint = CUInt;
-typedef GLclampx = int;
-typedef GLsizei = CInt;
-typedef GLfloat = float;
-typedef GLclampf = float;
-typedef GLdouble = double;
-typedef GLclampd = double;
-typedef GLeglClientBufferEXT = void;
-typedef GLeglImageOES = void;
-typedef GLchar = char;
-typedef GLcharARB = char;
+def GLenum = CUInt;
+def GLboolean = bool;
+def GLbitfield = CUInt;
+def GLbyte = ichar;
+def GLubyte = char;
+def GLshort = short;
+def GLushort = ushort;
+def GLint = CInt;
+def GLuint = CUInt;
+def GLclampx = int;
+def GLsizei = CInt;
+def GLfloat = float;
+def GLclampf = float;
+def GLdouble = double;
+def GLclampd = double;
+def GLeglClientBufferEXT = void;
+def GLeglImageOES = void;
+def GLchar = char;
+def GLcharARB = char;
 
-typedef GLhalf = ushort;
-typedef GLhalfARB = ushort;
-typedef GLfixed = int;
-typedef GLintptr = usz;
-typedef GLintptrARB = usz;
-typedef GLsizeiptr = isz;
-typedef GLsizeiptrARB = isz;
-typedef GLint64 = long;
-typedef GLint64EXT = long;
-typedef GLuint64 = ulong;
-typedef GLuint64EXT = ulong;
-typedef GLsync = void*;
-typedef GLdebugproc = void*;
-typedef GLdebugprocarb = void*;
-typedef GLdebugprockhr = void*;
+def GLhalf = ushort;
+def GLhalfARB = ushort;
+def GLfixed = int;
+def GLintptr = usz;
+def GLintptrARB = usz;
+def GLsizeiptr = isz;
+def GLsizeiptrARB = isz;
+def GLint64 = long;
+def GLint64EXT = long;
+def GLuint64 = ulong;
+def GLuint64EXT = ulong;
+def GLsync = void*;
+def GLdebugproc = void*;
+def GLdebugprocarb = void*;
+def GLdebugprockhr = void*;
 """;
 
 void main() {
@@ -190,8 +183,8 @@ void main() {
   final file = new File('dependencies/gl/xml/gl.xml');
   final document = XmlDocument.parse(file.readAsStringSync());
 
-  List<Command> commandList = parseCommands(document);
-  List<EnumValue> enumList = parseEnums(document);
+  List<Command?> commandList = parseCommands(document);
+  List<EnumValue?> enumList = parseEnums(document);
 
   // Filter out the versions required
   List<String> versionEnums = [];
@@ -200,14 +193,14 @@ void main() {
     var featureName = node.getAttribute("name");
 
     if (versions.contains(featureName)) {
-      versionEnums.addAll(node.findAllElements("enum").map((value) => value.getAttribute("name")));
-      versionCommands.addAll(node.findAllElements("command").map((value) => value.getAttribute("name")));
+      versionEnums.addAll(node.findAllElements("enum").map((value) => value.getAttribute("name")!));
+      versionCommands.addAll(node.findAllElements("command").map((value) => value.getAttribute("name")!));
     }
   });
 
   // Filtered commands and enums
-  var commands = commandList.where((value) => versionCommands.contains(value.name)).toList();
-  var enums = enumList.where((value) => versionEnums.contains(value.name)).toList();
+  var commands = commandList.where((value) => versionCommands.contains(value!.name)).toList();
+  var enums = enumList.where((value) => versionEnums.contains(value!.name)).toList();
 
   // This is where the converting to output string happens, very messy.
 
@@ -219,16 +212,16 @@ void main() {
   // Create function bindings placeholder
   String bindingsPlaceholder = Comment("Bindings") +
       "struct GL_bindings\n{\n" +
-      commands.map((value) => value.toBinding()).join("\n") +
+      commands.map((value) => value!.toBinding()).join("\n") +
       "\n}" +
       Comment("Bindings memory") +
       "\nGL_bindings bindings;";
 
   // Create Function definitions
   String fnDefinitions = Comment("Function definitions") +
-      commands.map((value) => value.toDefinition()).join("\n") +
+      commands.map((value) => value!.toDefinition()).join("\n") +
       Comment("GLFW proc definitions") +
-      "\ntypedef ProcFN = fn void* (char*);\n\n";
+      "\ndef ProcFN = fn void* (char*);\n\n";
 
   // Create Constants list
   String constants = Comment("Constants") + enums.map((value) => value.toString()).join("\n");
@@ -236,9 +229,9 @@ void main() {
   // Init function
 
   String initFunction =
-      "fn void init(ProcFN procAddress) {\n${commands.map((value) => value.getProc()).join("  \n")}\n} \n";
+      "fn void init(ProcFN procAddress) {\n${commands.map((value) => value!.getProc()).join("  \n")}\n} \n";
 
-  String callFunctions = commands.map((value) => value.toCallFn()).join("\n");
+  String callFunctions = commands.map((value) => value!.toCallFn()).join("\n");
 
   // Write the whole C3 output file
   output.writeAsStringSync("module gl;" +
