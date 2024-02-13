@@ -23,3 +23,5 @@ C3 project.json example
 "dependencies": ["opengl"],
 "dependency-search-paths": [ "dependencies" ],
 ```
+
+PS! Out of date with latest C3 version, sorry, working on Vulkan.c3 currently
